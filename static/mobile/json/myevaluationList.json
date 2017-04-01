@@ -1,0 +1,43 @@
+{
+  "lists":[
+    {
+      "productsimg":"images/goodspic.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "time":"2016-12-12 00:00:00",
+      "reviewstar":"review-star-4",
+      "additional":"comment.html",
+      "ask":"下次搞活动还来买，送的红酒包装都那么精美，超赞性价比比较高，希望下次继续合作。",
+      "reply":true,
+      "answer":"感谢亲对洋河1号的支持和认可！祝您生活愉快！",
+      "items":[
+        {"img":"images/goodspic.jpg"},
+        {"img":"images/goodspic.jpg"},
+        {"img":"images/goodspic.jpg"}
+      ]
+    },
+    {
+      "productsimg":"images/userhead.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "time":"2016-12-12 00:00:00",
+      "reviewstar":"review-star-3",
+      "ask":"下次搞活动还来买，送的红酒包装都那么精美，超赞性价比比较高，希望下次继续合作。",
+      "answer":"",
+      "items":[
+        {"img":"images/goodspic.jpg"},
+        {"img":"images/goodspic.jpg"}
+      ]
+    },
+    {
+      "productsimg":"images/userhead.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "time":"2017-12-12 00:00:00",
+      "reviewstar":"review-star-5",
+      "ask":"下次搞活动还来买，送的红酒包装都那么精美，超赞性价比比较高，希望下次继续合作。",
+      "answer":"",
+      "items":[
+        {"img":"images/goodspic.jpg"},
+        {"img":"images/goodspic.jpg"}
+      ]
+    }
+  ]
+}

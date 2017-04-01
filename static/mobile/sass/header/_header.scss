@@ -1,0 +1,20 @@
+/*header*/
+#index_header{height:44px;}
+.intoolbar {background:$color_white;width:100%;height:44px;overflow:hidden;@include display-flex;
+  .logo {height:100%;padding:0 10px;
+    img{ max-height: 100%;}
+  }
+  .region {padding-right:20px;line-height: 44px;color:$color_white;background: url(../images/icon_refresh.png) right 50% no-repeat;background-size:20px;margin-right: 5px;}
+  .m {display: block; @include flex(1);margin:7px 10px 0 0;}
+  .search{ position: relative;overflow:hidden;height:30px; line-height:30px;background: #FFF;@include border-radius(5px);border:1px solid $color_grey_bg;
+    button{position: absolute; right: 6px; height: 100%; width: 30px; top: 0; background: none; border: 0; color: #999999; font-size: 0;
+      &:before{ position: absolute; content: "\e602"; font-size:20px; left: 0; top: 0; line-height: 30px; width: 30px;}
+    }
+    input{ width: 100%; border:0;padding:0 40px 0 10px; height: 100%;color:#999999;margin: 0;}
+  }
+}
+
+
+.mui-bar {background:$color_orange;@include display-flex;}
+.mui-title {color: #FFF;@include flex(1);}
+a.mui-icon {color: #FFF; }

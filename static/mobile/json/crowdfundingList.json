@@ -1,0 +1,32 @@
+{
+  "lists":[
+    {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "price":"6.90",
+      "percentage":"50",
+      "total":"9888",
+      "in":"4944",
+      "than":"4944"
+    }, {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "price":"6.90",
+      "percentage":"50",
+      "total":"9888",
+      "in":"4944",
+      "than":"4944"
+    }, {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "price":"6.90",
+      "percentage":"50",
+      "total":"9888",
+      "in":"4944",
+      "than":"4944"
+    }
+  ]
+}

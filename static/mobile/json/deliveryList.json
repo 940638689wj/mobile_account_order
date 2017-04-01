@@ -1,0 +1,28 @@
+{
+  "lists":[
+    {
+      "codeimg":"images/sis-qrcode.jpg",
+      "previewgroup":1,
+      "title":"满减优惠券",
+      "prompt":"18030076543",
+      "time":"2017.03.15",
+      "href":"http://wwww.baidu.com"
+    },
+    {
+      "codeimg":"images/sis-qrcode.jpg",
+      "previewgroup":2,
+      "title":"满减优惠券",
+      "prompt":"18030076543",
+      "time":"2017.03.15",
+      "href":"http://wwww.baidu.com"
+    },
+    {
+      "user":true,
+      "codeimg":"images/sis-qrcode.jpg",
+      "previewgroup":3,
+      "title":"满减优惠券",
+      "prompt":"18030076543",
+      "time":"2017.03.15"
+    }
+  ]
+}

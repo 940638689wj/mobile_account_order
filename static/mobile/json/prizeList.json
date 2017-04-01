@@ -1,0 +1,29 @@
+{
+  "lists":[
+    {
+      "img":"images/goodspic.jpg",
+      "name":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "num":"1",
+      "time":"2017-02-20",
+      "source":"大转盘",
+      "unclaimed":true,
+      "href":"javascript:void(0);"
+    },
+    {
+      "img":"images/goodspic.jpg",
+      "name":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "num":"1",
+      "time":"2017-02-20",
+      "source":"大转盘",
+      "receive":true
+    },
+    {
+      "img":"images/goodspic.jpg",
+      "name":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "num":"1",
+      "time":"2017-02-20",
+      "source":"大转盘",
+      "beoverdue":true
+    }
+  ]
+}

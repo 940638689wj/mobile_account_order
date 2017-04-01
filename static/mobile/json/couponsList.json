@@ -1,0 +1,30 @@
+{
+  "lists":[
+    {
+      "url":"coupons_info.html",
+      "price":"10",
+      "threshold":"无金额门槛",
+      "title":"写评价红包",
+      "prompt":"消费限制条件，替代文字替代文",
+      "time":"2016-10-30",
+      "user":true
+    },
+    {
+      "url":"coupons_info.html",
+      "price":"20",
+      "threshold":"无金额门槛",
+      "title":"写评价红包",
+      "prompt":"消费限制条件，替代文字替代文",
+      "time":"2016-10-30",
+      "user":true
+    },
+    {
+      "url":"coupons_info.html",
+      "threshold":"无金额门槛",
+      "price":"30",
+      "title":"写评价红包",
+      "prompt":"消费限制条件，替代文字替代文",
+      "time":"2016-10-30"
+    }
+  ]
+}

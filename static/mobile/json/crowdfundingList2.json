@@ -1,0 +1,23 @@
+{
+  "lists":[
+    {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "winners":"杨杨杨",
+      "time":"2017-03-16 12:00:00.000"
+    }, {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "winners":"杨杨杨",
+      "time":"2017-03-16 12:00:00.000"
+    }, {
+      "url":"goods_detail_crowdfunding.html",
+      "img":"images/goodspic.jpg",
+      "name":"商品标题商品标题商品标题…",
+      "winners":"杨杨杨",
+      "time":"2017-03-16 12:00:00.000"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "lists":[
+    {
+      "url":"goods_detail.html",
+      "productsimg":"images/goodspic.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "price":"6.90"
+    },
+    {
+      "url":"goods_detail.html",
+      "productsimg":"images/goodspic.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "price":"6.90"
+    },
+    {
+      "url":"goods_detail.html",
+      "productsimg":"images/goodspic.jpg",
+      "productsname":"耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK",
+      "price":"6.90"
+    }
+  ]
+}

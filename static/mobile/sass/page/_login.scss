@@ -1,0 +1,71 @@
+/*login-registered-forget*/
+.loginform {background: #FFFFFF;margin-top:10px;}
+.loginform ul {overflow: hidden;}
+.loginform li {line-height:30px;padding:9px 15px;border-top: 1px solid $color_border;font-size: 14px;margin-top:-1px;@include display-flex;
+  &.bordernone {border-top:none;}
+}
+.loginform li::after {display: block; clear: both; content: ""; height: 0;}
+.loginform li .hd {min-width:60px;
+  &.w2 {letter-spacing:28px;margin-right:-28px;}
+  &.w3 {letter-spacing:7px;margin-right:-7px;}
+}
+.loginform li .bd {@include flex(1);@include display-flex;}
+.loginform li .info {width:100%;@include display-flex;}
+.loginform li .input-wrap {@include flex(1);}
+.loginform li .code {max-width: 100px;margin-left:10px;}
+.loginform li .code img {width: 100%;}
+.loginform li .telcode {height:30px;display: block;padding:0 15px 0 10px;border-right:1px solid $color_border;}
+.loginform li .toobtain {height:30px;display: block;width:100px;text-align: center;border-left:1px solid $color_border;color: #1e9bff;}
+.loginform li .toobtain.disabled {color: #999999;}
+.loginform input[type=text], .loginform input[type=password], .loginform input[type=number]{border: 0;padding:9px 30px 9px 10px;margin:-9px -30px -9px 0;vertical-align: top;height: 48px;line-height:30px;font-size: 14px;background: none;color: #3c3c3c;}
+.loginform select {border: 0;padding:9px 30px 9px 10px;margin:-9px -30px -9px 0;vertical-align: top;height: 48px;font-size: 14px;background: none;color: #3c3c3c;}
+.gender {position: relative;}
+.gender:after {content:'\e605';position: absolute;right:0;top:0;height:30px;line-height:30px;font-size: 20px;color: $color_grey;}
+
+.loginlbd {
+  li {padding:9px 0;margin-top:0;border-top:none;border-bottom: 1px solid $color_border;
+    .code {margin-right:10px;}
+    .toobtain {margin:0 10px;}
+  }
+}
+.logintopborder {
+  li {border-bottom:none;border-top: 1px solid $color_border;margin-top:-1px;}
+}
+.jt:after {content:'\e605';position: absolute;right:0;top:0;height:30px;line-height:30px;font-size: 20px;color: $color_grey;}
+.btnbar {margin:25px 10px 0;overflow: hidden;}
+.loginForget a {color: #666666;overflow: hidden;padding:0 10px;}
+.inputNum {padding:20px 15px 7px 15px;color: #999999;margin-bottom:-14px;}
+.prompt {padding:0 10px;margin-top:50px;}
+.prompt p {color: #999999;font-size: 12px;line-height: 26px;}
+.changepassword li .hd {min-width: 84px;}
+
+.toptip {line-height: 24px;padding:8px 10px;background:$color_cs;color: $color_white;overflow: hidden;
+  .btn {height: 24px;line-height: 24px;padding:0 10px;color: $color_white;border:1px solid $color_white;float: right;@include border-radius(4px);}
+  .info {margin-right: 70px;}
+}
+.loginForget {overflow: hidden;}
+/*inputInfo-delete*/
+.input-wrap {position: relative;}
+.input-wrap .delete {display: none;position: absolute;top: 0;right:0;width:30px;height: 100%;}
+.input-wrap .delete:before {font-family: "iconfont";content: "\e62f";font-size: 20px;position: absolute;top: 50%;left: 50%;width: 20px;height: 20px;line-height: 20px;margin: -10px 0 0 -10px;text-align: center;color: #fff;background: #dfdfdf;@include border-radius(50%);}
+
+.partylogin{ margin: 30px 7px 10px;
+  h3{ position: relative; margin: auto; width: 140px; font-size: 12px; color: $color_grey; line-height: 45px; text-align: center;
+    &:before,&:after{ content: ""; position: absolute; height: 1px; background: $color_border;  margin-top: 22px;}
+    &:before{ left: -79px; right: 132px;}
+    &:after{ right: -79px; left: 132px;}
+  }
+  ul{ display: table; width: 100%;}
+  li{ display: table-cell;
+    a{ display: block; text-align: center; margin: auto;
+      .ico{ display: block; width: 50px; height: 50px; margin: auto; background: url("../images/login-icons.png") no-repeat; @include background-size(auto 50px);
+        &:before{ content: "";}
+      }
+      .ico-taobao{ background-position: 0 0;}
+      .ico-qq{ background-position: -50px 0; }
+      .ico-sina{ background-position: -100px 0; }
+      .ico-wechat{ background-position: -150px 0; }
+      .ico-alipay{ background-position: -200px 0; }
+    }
+  }
+}

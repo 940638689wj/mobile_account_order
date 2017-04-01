@@ -1,0 +1,86 @@
+@import "../sass/helpers/variables";
+@import "../sass/helpers/mixins";
+
+/*index_head*/
+.search button:before{font-family: "iconfont";font-weight:normal;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased;}
+
+#index_header{height:44px;}
+
+.intoolbar {background:$color_white;width:100%;height:44px;overflow:hidden;@include display-flex;
+  .logo {height:100%;padding:0 10px;max-width:100px;
+    img{ max-height: 100%;}
+  }
+  .region {padding-right:13px;line-height: 44px;color: $color_red;}
+  .m {display: block; @include flex(1);margin:7px 10px 0 0;}
+  .search{ position: relative;overflow:hidden;height:30px; line-height:30px;background: #FFF;@include border-radius(5px);border:1px solid $color_grey_bg;
+    button{position: absolute; left: 6px; height: 100%; width: 30px; top: 0; background: none; border: 0; color: #999999; font-size: 0;
+      &:before{ position: absolute; content: "\f002"; font-size:20px; left: 0; top: 0; line-height: 30px; width: 30px;}
+    }
+    input{ width: 100%; border:0;padding:0 10px 0 40px; height: 100%;color:#999999;}
+  }
+  .r{ line-height: 44px; color: #fff; height: 100%;padding-right:10px;
+    a{ color: #fff; width: 32px; height: 32px; line-height: 32px; text-align: center; position: relative; float: left; margin: 6px 0 0 10px; overflow: hidden;
+      .iconfont {font-size: 26px;}
+      img{ max-height: 100%; vertical-align: middle;}
+      i{ position: absolute; right: 0; top: 0; min-width: 7px; padding: 0 3px; height: 12px; @include border-radius(6px); text-align: center; line-height: 12px; font-size: 10px; font-style: normal; background: $color_white; color: $color_grey;}
+    }
+  }
+}
+
+/*userindex_head*/
+.mc-headwrap {overflow:hidden;padding-bottom:15px;background: url(../images/mc-headwrap.png) top center no-repeat #FFF;background-size: 100% auto;margin-bottom:10px;border-bottom: 1px solid $color_grey_line;}
+.mc-head {height:100px;position: relative;
+  .pic {width:76px;margin: auto;}
+  .namewrap {width:100%;text-align: center;margin-top:-12px;
+    .name {@include border-radius(5px); height:20px;line-height:20px;background: #148cdc;text-align:center;display:inline-block;padding:0 15px;color:$color_white;}
+  }
+.mc-sign-in {width:60px;height:38px;position: absolute;top:28px;right:4px;display: block;background-image:url(../images/icon_mcsignin.png);background-position: 0 0;background-repeat: no-repeat;background-size: 60px auto;text-indent:-9999px;
+  &.active {background-position: 0 100%;}
+}
+}
+/*menu_1*/
+.GlobalMenu_1 { height: 44px; }
+.globalMenu { height: 44px;}
+.gbt-wrap{ position: fixed; z-index: 100; bottom: 0;width: 100%;height:44px; background: #f9f9f9;-webkit-box-shadow: 0 -3px 5px rgba(11,3,6,.1);box-shadow: 0 -3px 5px rgba(11,3,6,.1);
+  ul{ display: table; width: 100%; table-layout: fixed; height: 100%;}
+  li{ display: table-cell; height: 100%; vertical-align: top;
+    a{ display: block; height: 100%; text-align: center; color: #555a64; padding: 0 4px;}
+    a:active,&.current a{ color: #056ebe;}
+  }
+}
+.gbt-text{ display: block; font-size: 9px; white-space: nowrap; width: 100%; line-height: 12px; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis;}
+.gbt-ico{ position: relative; padding-top: 4px; display: block; margin: auto; width: 22px; height:30px; text-align: center; overflow: hidden; line-height: 26px; font-size: 22px;}
+
+.gotop {width:45px;height:45px;color: #FFF;text-align: center;position: fixed;z-index:20;bottom:20px;right:20px;@include border-radius(50%);background-color:#b1bac5;border:1px solid #a4a4a4;
+  a {width:100%;height:100%;display: block;color: #FFF;}
+  span {padding-top:6px;line-height:18px;display: block; }
+  p{font-size: 10px;}
+}
+
+/*myshop_menu_1*/
+.gbm-wechat{ height: 41px;
+  .wrap{ position: fixed; z-index: 99; height: 40px; width: 100%;bottom: 0; border-top: 1px solid $color_border; background: $color_white; font-size: 14px;}
+}
+.gbm-wechat-list{
+  > ul{ height: 40px; @include display-flex;}
+  .nav-item{ position: relative; @include flex(1); text-align: center; line-height: 40px; font-family: "iconfont";font-weight:normal;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing: grayscale;
+    a{ position: relative; z-index: 99; display: block; border-left: 1px solid $color_grey_line; background: $color_white;color: #000000;
+      .iconfont {font-size:16px;margin-right:5px;color: #d2d2d2;display: inline-block;vertical-align: middle;}
+    }
+    &.nav-item-home{ border: 0; width: 44px; @include flex(inherit);
+      &:before{ display: none;}
+      a{ position: relative; text-indent: -9999px;
+        &:before{ content: "\e603"; font-size: 28px; color: #999;  position: absolute; left: 0; right: 0; text-indent: 0;}
+      }
+    }
+  }
+}
+
+.gbm-wechat-sub{ display: none; position: absolute; z-index: 98; width: 90px; left: 50%; margin-left: -45px; top: 40px;
+  ul{ width: 100%; background: #fff; text-align: center; @include border-radius(5px); @include box-shadow(0 0 4px rgba(0, 0, 0, 0.2));}
+  li{ height: 39px; line-height: 39px; border-top: 1px solid #eee; white-space: nowrap; overflow: hidden;
+    &:first-child{ border: 0;}
+    a{ display: block;}
+  }
+  &:before{ position: absolute; content: ""; background: #fff; bottom: -5px; left: 50%; margin-left: -5px; width: 11px; height: 11px; @include box-shadow(2px 2px 2px rgba(0, 0, 0, 0.1)); @include transform(rotate(45deg));}
+}

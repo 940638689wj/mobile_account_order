@@ -1,0 +1,52 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
+body, button, input, select, textarea { font: 14px/1.5 sans-serif; *line-height: 1.5; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+address, cite, dfn, em, var,i { font-style: normal; }
+code, kbd, pre, samp { font-family: courier new,courier,monospace; }
+small { font-size: 12px; }
+ul, ol { list-style: none; }
+a { text-decoration: none; color: #333333; }
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+legend { color: #000; }
+fieldset, img { border: 0; }
+button, input, select, textarea { font-size: 100%; font-family: Helvetica, "STHeiti STXihei", "Microsoft YaHei", Tohoma, Arial; }
+table { border-collapse: collapse; border-spacing: 0; }
+/*common*/
+body, html { height: 100%; }
+.clearfix { *zoom: 1; }
+.clearfix:after { content: "\200B"; display: block; clear: both; height: 0; }
+html { font-size: 20px; }
+body { -webkit-text-size-adjust: none; color: #333333; font-family: Helvetica, "STHeiti STXihei", "Microsoft YaHei", Tohoma, Arial; }
+a, a:visited { color: #333333; -webkit-tap-highligh-color: transparent; }
+img { vertical-align: top; max-width: 100%; }
+.fl { float: left; }
+.fr { float: right; }
+.inline { display: inline-block; vertical-align: middle; margin-left: 10px; }
+.mb0 {margin-bottom: 0!important;}
+@font-face {font-family: "iconfont";
+    src: url('font/iconfont.eot?t=1476942884'); /* IE9*/
+    src: url('font/iconfont.eot?t=1476942884#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('font/iconfont.woff?t=1476942884') format('woff'), /* chrome, firefox */
+    url('font/iconfont.ttf?t=1476942884') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('font/iconfont.svg?t=1476942884#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont { font-family: "iconfont" !important; font-size: 22px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale; }
+/*form controls*/
+input[type=text], input[type=password], input[type=number], input[type=email], textarea, select { font-size: 14px; border: 1px solid #dfdfdf; padding: 5px 10px; background-color: #fff; margin: 0; -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; outline: 0; }
+input[type=text], input[type=password], input[type=number], input[type=email] { height: 36px; }
+textarea { vertical-align: top; height:80px; }
+.upload-wrap { position: relative; overflow: hidden; }
+.upload-wrap input[type=file] { position: absolute; left: 0; top: 0; font-size: 9999px; opacity: 0; }
+
+input[type=radio], input[type=checkbox] { position: relative; width: 20px; height: 20px; -webkit-appearance: none; vertical-align: middle; margin-right: 5px; outline: none; background: none; border: 0; }
+input[type=radio]:before, input[type=checkbox]:before { content: ""; position: absolute; width: 20px; height: 20px; background: #fff; border: 1px solid #dfdfdf; -webkit-border-radius: 50%; border-radius: 50%; -webkit-background-clip: padding-box; background-clip: padding-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+input[type=radio]:after, input[type=checkbox]:after { display: none; content: ""; position: absolute; width: 9px; height: 4px; top: 6px; left: 4px; border: solid #fff; border-width: 0 0 2px 2px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+input[type=radio]:checked:before, input[type=checkbox]:checked:before { border: 0; background:#008cd6; }
+input[type=radio]:checked:after, input[type=checkbox]:checked:after { display: block; }
+input[type=radio]:disabled:before, input[type=checkbox]:disabled:before { background: #eee; }
+input[type=radio]:disabled:after, input[type=checkbox]:disabled:after {border:0;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none !important; margin: 0; }
+
+.PagePreview::-webkit-scrollbar{width:0;height:0;}

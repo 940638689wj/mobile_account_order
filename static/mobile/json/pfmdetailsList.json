@@ -1,0 +1,25 @@
+{
+  "lists":[
+    {
+      "consumption":"2390.00",
+      "achievement":"239",
+      "time":"2015-07-15 12:15:07",
+      "settlement":true
+    },
+    {
+      "consumption":"2390.00",
+      "achievement":"239",
+      "time":"2015-07-15 12:15:07"
+    },
+    {
+      "consumption":"2390.00",
+      "achievement":"239",
+      "time":"2015-07-15 12:15:07"
+    },
+    {
+      "consumption":"2390.00",
+      "achievement":"239",
+      "time":"2015-07-15 12:15:07"
+    }
+  ]
+}

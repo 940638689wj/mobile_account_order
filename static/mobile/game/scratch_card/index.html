@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"  content="telephone=no"/>
+	<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/yrmobile.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/frames.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/module.css" />
+	<script type="text/javascript" src="../../js/zepto.js"></script>
+	<script type="text/javascript" src="../../js/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/yrmobile.js"></script>
+	<script type="text/javascript" src="jquery.eraser.js"></script>
+</head>
+<style>
+	.scratch-card-body{ position: relative; margin:0 auto; height:520px; background: url("img/bg.png") no-repeat top #eb393e; padding-top: 1px; -webkit-background-size: 320px; background-size: 320px;}
+	.scard-btn-prize,.scard-btn-share{ position: absolute; top: 12px; -webkit-background-size: cover; background-size: cover; text-indent: -9999px;}
+	.scard-btn-prize{ left: 11px; width: 93px; height: 25px; background-image: url("img/btn-prize.png");}
+	.scard-btn-share{ right: 11px; width: 88px; height: 25px; background-image: url("img/btn-share.png");}
+	.scratch-card-box{ position: relative; z-index: 2; width: 250px; height: 137px; margin: 180px auto 0; overflow:visible;-webkit-transform: translateZ(0);}
+	.scard-cover{ position: absolute; z-index: 99; width: 100%; height: 100%;}
+	.scard-content{ position: absolute; z-index: 98; width: 100%; height: 100%; text-align: center; -webkit-border-radius: 7px; -moz-border-radius: 7px; border-radius: 7px; background: #fff no-repeat center; -webkit-background-size: contain; background-size: contain;}
+	.scratch-card-result{ position: absolute; z-index: 1; top: 180px; width: 250px; height: 137px; left: 50%; margin-left: -125px; background: #fff; -webkit-border-radius: 7px; -moz-border-radius: 7px; border-radius: 7px; text-align: center;}
+	.result-box{ display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+	.result-box h3{ font-size: 19px; color: #eb393e; line-height: 52px;}
+	.result-box p{ font-size: 15px; color: #acacac; line-height: 18px; margin-left: 25px; margin-right: 25px;}
+	.result-btn{ position: absolute; top: 97px; width: 100%;}
+	.result-btn a{ display: inline-block; padding: 0 20px; line-height: 25px; color: #fff; font-size: 12px; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px; background: #ff9802;}
+	.result-win .result-btn a{ background: #eb393e;}
+	.result-chance-over p{ margin-top: 28px; line-height: 24px;}
+	.scratch-card-rule{ position: absolute; top: 354px; left: 50%; width: 280px; margin-left: -140px;}
+	.scard-rule-title{ line-height: 18px; color: #fff; font-size: 12px; margin-bottom: 8px;}
+	.scard-rule-title span{ padding: 0 10px; display: inline-block; background: #aa1700; -webkit-border-radius: 9px; -moz-border-radius: 9px; border-radius: 9px;}
+	.scard-rule-container{ line-height: 20px; color: #fff; font-size: 12px; height:120px; overflow: auto;}
+</style>
+<body>
+<div id="page">
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-icon mui-icon-left-nav"></a>
+		<h1 class="mui-title">刮刮卡</h1>
+		<a class="mui-icon"></a>
+	</header>
+	<div class="mui-content">
+		<div class="scratch-card-body">
+			<div id="J_Scratch_box" class="scratch-card-box">
+				<img class="scard-cover" id="J_Scratch_cover" src="img/cover.png" alt=""/>
+				<div class="scard-content" id="J_Scratch_content"></div>
+			</div>
+			<div id="J_Scratch_result" class="scratch-card-result">
+				<div class="result-box result-none">
+					<h3>谢谢惠顾</h3>
+					<p>据说奖品君就在下一张，继续努力！</p>
+					<div class="result-btn"><a href="javascript:void(0)">再刮一张</a></div>
+				</div>
+				<div class="result-box result-chance-over">
+					<p>亲，你今天的刮奖次数已用完，请明天再来吧！</p>
+					<div class="result-btn"><a href="javascript:void(0)">分享游戏</a></div>
+				</div>
+				<div class="result-box result-win">
+					<h3>恭喜中奖</h3>
+					<p>100元优惠券（无限制）</p>
+					<div class="result-btn"><a href="javascript:void(0)">分享给好友领取奖品</a></div>
+				</div>
+			</div>
+
+			<div class="scratch-card-rule">
+				<div class="scard-rule-title"><span>活动规则</span></div>
+				<div class="scard-rule-container">
+					1、活动时间2014.12.12-2014.12.25<br>
+					2、刮开涂层，获得领取奖品资格，将游戏分享给好友，且有2个好友获得与你相同的奖品时，即可领取奖品，需在规定时间内分享给好友才能 领取奖品哦，加油！<br>
+					2、刮开涂层，获得领取奖品资格，将游戏分享给好友，且有2个好友获得与你相同的奖品时，即可领取奖品，需在规定时间内分享给好友才能 领取奖品哦，加油！<br>
+					2、刮开涂层，获得领取奖品资格，将游戏分享给好友，且有2个好友获得与你相同的奖品时，即可领取奖品，需在规定时间内分享给好友才能 领取奖品哦，加油！
+				</div>
+			</div>
+
+			<a class="scard-btn-prize" href="javascript:void(0)">我的奖品</a>
+			<a class="scard-btn-share" href="javascript:void(0)">分享游戏</a>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		main();
+		var cover = $('#J_Scratch_cover'),
+				box = $('#J_Scratch_box'),
+				content = $('#J_Scratch_content'),
+				resultbox = $('#J_Scratch_result'),
+				result_chance_over = resultbox.find('.result-chance-over'),
+				result_win = resultbox.find('.result-win'),
+				result_none = resultbox.find('.result-none'),
+				result = 0;
+
+		if(window.devicePixelRatio >= 3){
+			cover.attr("src","/static/mobile/games/scratch_card/img/cover-big.png");
+		}
+
+		var resultTxt = [
+			'据说奖品君就在下一张，继续努力！',
+			'还没刮中，感觉再也不会爱了',
+			'一直刮人家，好坏～好坏的～',
+			'据说，吃包辣条能提高中奖率，你也试试！',
+			'要不，换脚趾再来试试！'
+		];
+		var resultImg = {
+			win : '/static/mobile/games/scratch_card/img/emotion-win.png',
+			none : [
+				'img/emotion-1.png',
+				'img/emotion-2.png',
+				'img/emotion-3.png',
+				'img/emotion-4.png'
+			]
+		};
+		function startGame(){
+			result = getResult();
+			setResultImg();
+			$('#J_Scratch_cover').eraser({
+				completeRatio :.7,
+				completeFunction : function () {
+					box.hide();
+					showResult(result);
+				}
+			});
+		}
+		function showResult(type){
+			switch(type){
+				case -1 : result_chance_over.show().animate({opacity:1});
+					break;
+				case 1 : result_win.show().animate({opacity:1});
+					break;
+				default : result_none.find('p').html(resultTxt[Math.floor(resultTxt.length*Math.random())]);
+					result_none.show().animate({opacity:1});
+			}
+		}
+		function restartGame(){
+			result = getResult();
+			resultbox.find('.result-box').hide().css('opacity',0);
+			box.show();
+			setResultImg();
+			$('#J_Scratch_cover').eraser('reset');
+		}
+
+		function getResult(){
+			var rnd = Math.random() * 9;
+			if(rnd >=0 && rnd < 3){
+				return -1;
+			}else if(rnd >= 3 && rnd < 6){
+				return 0;
+			}else if(rnd >= 6 && rnd <9){
+				return 1;
+			}
+		}
+
+		function setResultImg(){
+			var img;
+			if(result == 1){
+				img = resultImg['win'];
+			}else{
+				img = resultImg['none'][Math.floor(resultImg['none'].length*Math.random())];
+			}
+			content.css('background-image','url('+ img +')');
+		}
+
+		startGame();
+
+		result_none.find('.result-btn a').on('click', function () {
+			restartGame();
+		});
+	});
+
+	$(window).resize(function(){
+		main();
+	})
+
+	function main(){
+		var winHeight = document.documentElement.getBoundingClientRect().height,
+			muiBarH = $(".mui-bar").height() || 0;
+		$(".scratch-card-body").css("min-height",winHeight-muiBarH);
+	}
+</script>
+</body>
+</html>

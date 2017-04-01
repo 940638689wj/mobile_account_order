@@ -51,10 +51,9 @@
                             <a class="mui-btn mui-btn-outlined">退款/退货</a>
                         </div>
                     <!--待收货-->
-                        <div class="cz" v-if="orderHeader.type == 3 || orderHeader.orderDistrbuteTypeCd == 1">
+                        <div class="cz" v-if="orderHeader.type == 3">
                             <a class="mui-btn mui-btn-outlined">退款/退货</a>
-                            <a class="mui-btn mui-btn-danger mui-btn-outlined"
-                               @click="confirmReceive(orderHeader.orderId)">确认收货</a>
+                            <a class="mui-btn mui-btn-danger mui-btn-outlined" @click="confirmReceive(orderHeader.orderId)" v-if="orderHeader.orderDistrbuteTypeCd == 1">确认收货</a>
                         </div>
                     <!--待评价-->
                         <div class="cz" v-if="orderHeader.type == 4">
@@ -92,7 +91,7 @@ export default {
       pageSize: 5,
       backUrl: '/m/account', // 回退按钮url前缀
       detailUrl: '/detail/', // 订单详情url前缀
-      type: 0, // 订单类型
+      type: this.$route.params.listType, // 订单类型
       btnArray: ['否', '是'], // 确认框按钮组
       selectOrderId: 0 // 选中的订单id
     }

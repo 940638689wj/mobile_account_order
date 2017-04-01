@@ -1,7 +1,7 @@
 <template>
 <div id="page" v-cloak>
   <header class="mui-bar mui-bar-nav">
-      <router-link to="/" class="mui-icon mui-icon-left-nav"></router-link>
+      <router-link :to="{name: 'list', params: {listType: orderHeaderDTO.type}}" class="mui-icon mui-icon-left-nav"></router-link>
       <h1 class="mui-title">订单详情</h1>
       <a class="mui-icon"></a>
   </header>
@@ -151,7 +151,7 @@ export default {
               function (res) {
                 if (res && res.body.result === 'success') {
                   mui.toast('删除成功！')
-                  obj.router.replace('/')
+                  obj.router.replace({name: 'list', params: {listType: obj.orderHeaderDTO.type}})
                 } else {
                   mui.toast('删除失败，请稍后重试！')
                 }

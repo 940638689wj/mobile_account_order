@@ -4,7 +4,8 @@ import review from './components/review.vue'
 
 const routers = [
   {
-    path: '/',
+    path: '/:listType',
+    name: 'list',
     component: list
   },
   {

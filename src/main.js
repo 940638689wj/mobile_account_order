@@ -5,10 +5,11 @@ import App from './App'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import routers from './routers'
+import mui from '../static/mobile/js/mui.min.js'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
-// Vue.use(mui)
+window.mui = mui
 
 const router = new VueRouter({
   routes: routers

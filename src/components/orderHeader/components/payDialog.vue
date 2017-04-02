@@ -79,7 +79,6 @@
 
 <script>
 import $ from 'n-zepto'
-import mui from '../../../static/mobile/js/mui.min.js'
 
 export default {
   name: 'payDialog',
@@ -149,7 +148,7 @@ export default {
     // 余额支付输入密码后点击确认
     payByBalance () {
       if (this.pwdInput.length < 6) {
-        mui.toast('请输入六位密码')
+        window.mui.toast('请输入六位密码')
         return false
       }
       window.location.href = this.payUrl + '?orderNumber=' + this.orderNumber + '&payWay=5'

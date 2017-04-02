@@ -28,6 +28,7 @@
                             <span class="r" v-else>{{orderHeader.orderStatusName}}</span>
                             <span class="l">{{orderHeader.createTime | time}}</span>
                         </div>
+                        <!-- <router-link :to="{ name: 'detail', params: { orderId: orderHeader.orderId }}"> -->
                         <router-link :to="{ name: 'detail', params: { orderId: orderHeader.orderId }}">
                             <div class="items" v-for="orderItem in orderHeader.orderItemList">
                                 <div class="pic"><img :src="orderItem.productPicUrl"></div>
@@ -76,9 +77,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import $ from 'n-zepto'
-import mui from '../../static/mobile/js/mui.min.js'
-import '../../static/mobile/js/dropload.js'
+import '../../../static/mobile/js/dropload.js'
 
 import payDialog from './components/payDialog'
 
@@ -106,23 +107,23 @@ export default {
         this.type = val
         this.pageNo = 0
         this.orderHeaderDTOList = []
-        setTimeout(this.droploadList, 200)
+        this.droploadList()
       }
     },
     // 取消订单
     cancelOrder (orderId) {
       let obj = this
-      mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/cancelOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
             function (res) {
               if (res && res.body.result === 'success') {
                 obj.pageNo = 0
                 obj.orderHeaderDTOList = []
-                mui.toast('取消成功！')
-                window.setTimeout(obj.droploadList, 200)
+                window.mui.toast('取消成功！')
+                obj.droploadList()
               } else {
-                mui.toast('取消失败，请稍后重试！')
+                window.mui.toast('取消失败，请稍后重试！')
               }
             }
           )
@@ -132,17 +133,17 @@ export default {
     // 删除订单
     delOrder (orderId) {
       let obj = this
-      mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/delOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
                   obj.pageNo = 0
                   obj.orderHeaderDTOList = []
-                  mui.toast('删除成功！')
-                  window.setTimeout(obj.droploadList, 200)
+                  window.mui.toast('删除成功！')
+                  obj.droploadList()
                 } else {
-                  mui.toast('删除失败，请稍后重试！')
+                  window.mui.toast('删除失败，请稍后重试！')
                 }
               }
             )
@@ -152,17 +153,17 @@ export default {
     // 确认收货
     confirmReceive (orderId) {
       let obj = this
-      mui.confirm('', '确认收货？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认收货？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/confirmReceive', {orderId: orderId}, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
                   obj.pageNo = 0
                   obj.orderHeaderDTOList = []
-                  mui.toast('已确认收货！')
-                  window.setTimeout(obj.droploadList, 200)
+                  window.mui.toast('已确认收货！')
+                  obj.droploadList()
                 } else {
-                  mui.toast('操作失败，请稍后重试！')
+                  window.mui.toast('操作失败，请稍后重试！')
                 }
               }
             )
@@ -173,44 +174,46 @@ export default {
     droploadList () {
       let obj = this
       $('.dropload-down').remove()
-      $('.financiallistWrap').dropload({
-        scrollArea: window,
-        domDown: {
-          domClass: 'dropload-down',
-          domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
-          domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
-          domNoData: '<div class="dropload-noData">暂无数据</div>'
-        },
-        loadDownFn (me) {
-          obj.pageNo++
-          // 拼接HTML
-          obj.$http.get('/m/account/orderHeader/findListByLimit', {
-            params: {
-              pageNo: obj.pageNo,
-              pageSize: obj.pageSize,
-              type: obj.type
-            },
-            emulateJSON: true
-          }).then(
-              function (res) {
-                if (res.body.result === 'true') {
-                  obj.orderHeaderDTOList = obj.orderHeaderDTOList.concat(res.body.orderHeaderDTOList)
-                } else {
-                  me.lock()
-                  me.noData()
-                }
-                me.resetload()
+      Vue.nextTick(function () {
+        $('.financiallistWrap').dropload({
+          scrollArea: window,
+          domDown: {
+            domClass: 'dropload-down',
+            domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
+            domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+            domNoData: '<div class="dropload-noData">暂无数据</div>'
+          },
+          loadDownFn (me) {
+            obj.pageNo++
+            // 拼接HTML
+            obj.$http.get('/m/account/orderHeader/findListByLimit', {
+              params: {
+                pageNo: obj.pageNo,
+                pageSize: obj.pageSize,
+                type: obj.type
               },
-              function (res) {
-                // me.resetload()
-              }
-            )
-        }
+              emulateJSON: true
+            }).then(
+                function (res) {
+                  if (res.body.result === 'true') {
+                    obj.orderHeaderDTOList = obj.orderHeaderDTOList.concat(res.body.orderHeaderDTOList)
+                  } else {
+                    me.lock()
+                    me.noData()
+                  }
+                  me.resetload()
+                },
+                function (res) {
+                  // me.resetload()
+                }
+              )
+          }
+        })
       })
     }
   },
   created () {
-    window.setTimeout(this.droploadList, 200)
+    this.droploadList()
   }
 }
 </script>

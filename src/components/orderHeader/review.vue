@@ -50,10 +50,9 @@
 </template>
 <script>
 import $ from 'n-zepto'
-import mui from '../../static/mobile/js/mui.min.js'
-import '../../static/mobile/js/rateit.js'
+import '../../../static/mobile/js/rateit.js'
 import VueRouter from 'vue-router'
-import routers from '../routers'
+import routers from '../../routers'
 
 export default {
   name: 'detail',
@@ -78,7 +77,7 @@ export default {
       let flag = false
       for (let reviewInfo of this.reviewInfoList) {
         if (!reviewInfo.productMatchScore) {
-          mui.toast('评分不能为空!')
+          window.mui.toast('评分不能为空!')
           flag = false
           return false
         }
@@ -95,7 +94,7 @@ export default {
         }).then(
           function (res) {
             if (res.body.result === 'success') {
-              mui.toast('评价成功')
+              window.mui.toast('评价成功')
               if (this.$route.params.type === 1) {
                 const router = new VueRouter({
                   routes: routers
@@ -107,7 +106,7 @@ export default {
                 window.location.href = '/m/account/pickupOrder/list?type=0'
               }
             } else {
-              mui.toast('不可重复评价')
+              window.mui.toast('不可重复评价')
             }
           })
       }

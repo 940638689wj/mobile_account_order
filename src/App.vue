@@ -4,18 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'root',
-  data () {
-    return {
-    }
-  },
-  methods: {
-  }
-}
-</script>
-
 <style>
 @import '/static/mobile/css/mui.css';
 @import '/static/mobile/css/global.css';

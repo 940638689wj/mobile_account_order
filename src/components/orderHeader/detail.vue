@@ -101,9 +101,8 @@
 
 <script>
 import payDialog from './components/payDialog'
-import mui from '../../static/mobile/js/mui.min.js'
 import VueRouter from 'vue-router'
-import routers from '../routers'
+import routers from '../../routers'
 
 export default {
   name: 'detail',
@@ -123,17 +122,17 @@ export default {
     // 取消订单
     cancelOrder () {
       let obj = this
-      mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/cancelOrderHeader', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
             function (res) {
               if (res && res.body.result === 'success') {
-                mui.toast('取消成功！')
+                window.mui.toast('取消成功！')
                 obj.router.replace({name: 'detail', params: {orderId: obj.$route.params.orderId}})
               } else {
-                mui.toast('取消失败，请稍后重试！')
+                window.mui.toast('取消失败，请稍后重试！')
               }
             }
           )
@@ -143,17 +142,17 @@ export default {
     // 删除订单
     delOrder () {
       let obj = this
-      mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/delOrderHeader', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
-                  mui.toast('删除成功！')
+                  window.mui.toast('删除成功！')
                   obj.router.replace({name: 'list', params: {listType: obj.orderHeaderDTO.type}})
                 } else {
-                  mui.toast('删除失败，请稍后重试！')
+                  window.mui.toast('删除失败，请稍后重试！')
                 }
               }
             )
@@ -163,17 +162,17 @@ export default {
     // 确认收货
     confirmReceive () {
       let obj = this
-      mui.confirm('', '确认收货？', this.btnArray, function (e) {
+      window.mui.confirm('', '确认收货？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/m/account/orderHeader/confirmReceive', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
-                  mui.toast('已确认收货！')
+                  window.mui.toast('已确认收货！')
                   obj.router.replace({name: 'detail', params: {orderId: obj.$route.params.orderId}})
                 } else {
-                  mui.toast('操作失败，请稍后重试！')
+                  window.mui.toast('操作失败，请稍后重试！')
                 }
               }
             )

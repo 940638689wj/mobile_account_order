@@ -28,8 +28,7 @@
                             <span class="r" v-else>{{orderHeader.orderStatusName}}</span>
                             <span class="l">{{orderHeader.createTime | time}}</span>
                         </div>
-                        <!-- <router-link :to="{ name: 'detail', params: { orderId: orderHeader.orderId }}"> -->
-                        <router-link :to="{ name: 'detail', params: { orderId: orderHeader.orderId }}">
+                        <router-link :to="{name: 'mOrderDetail', params: { orderId: orderHeader.orderId }}">
                             <div class="items" v-for="orderItem in orderHeader.orderItemList">
                                 <div class="pic"><img :src="orderItem.productPicUrl"></div>
                                 <h3>{{orderItem.productName}}</h3>
@@ -58,7 +57,7 @@
                         </div>
                     <!--待评价-->
                         <div class="cz" v-if="orderHeader.type == 4">
-                        <router-link :to="{name: 'review', params: {orderId: orderHeader.orderId, type: 1}}" class="mui-btn mui-btn-danger mui-btn-outlined">
+                        <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeader.orderId, type: 1}}" class="mui-btn mui-btn-danger mui-btn-outlined">
                             评价
                         </router-link>
                         </div>

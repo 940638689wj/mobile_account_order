@@ -1,28 +1,28 @@
-import orderIndex from './components/orderHeader/index.vue'
-import list from './components/orderHeader/list.vue'
-import detail from './components/orderHeader/detail.vue'
-import review from './components/orderHeader/review.vue'
+import mOrderIndex from './components/order/index.vue'
+import mOrderList from './components/order/list.vue'
+import mOrderDetail from './components/order/detail.vue'
+import mOrderReview from './components/order/review.vue'
 
 const routers = [
   {
     // 微信端-个人中心-我的订单
-    path: '/m/account/orderHeader',
-    component: orderIndex,
+    path: '/m/account/order',
+    component: mOrderIndex,
     children: [
       {
-        path: ':listType',
-        name: 'list',
-        component: list
+        path: 'list/:listType',
+        name: 'mOrderList',
+        component: mOrderList
       },
       {
         path: 'detail/:orderId',
-        name: 'detail',
-        component: detail
+        name: 'mOrderDetail',
+        component: mOrderDetail
       },
       {
         path: 'review/:orderId/:type',
-        name: 'review',
-        component: review
+        name: 'mOrderReview',
+        component: mOrderReview
       }
     ]
   },

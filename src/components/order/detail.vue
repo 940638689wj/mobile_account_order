@@ -1,7 +1,7 @@
 <template>
 <div id="page" v-cloak>
   <header class="mui-bar mui-bar-nav">
-      <router-link :to="{name: 'list', params: {listType: orderHeaderDTO.type}}" class="mui-icon mui-icon-left-nav"></router-link>
+      <router-link :to="{name: 'mOrderList', params: {listType: orderHeaderDTO.type}}" class="mui-icon mui-icon-left-nav"></router-link>
       <h1 class="mui-title">订单详情</h1>
       <a class="mui-icon"></a>
   </header>
@@ -80,7 +80,7 @@
                       <a class="orderdetailbtn" href="javascript:void(0)" @click="confirmReceive">确认收货</a>
                   </div>
                   <div v-if="orderHeaderDTO.type == 4">
-                    <router-link :to="{name: 'review', params: {orderId: orderHeaderDTO.orderId, type: 1}}" class='orderdetailbtn'>
+                    <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeaderDTO.orderId, type: 1}}" class='orderdetailbtn'>
                       评价
                     </router-link>
                   </div>
@@ -130,7 +130,7 @@ export default {
             function (res) {
               if (res && res.body.result === 'success') {
                 window.mui.toast('取消成功！')
-                obj.router.replace({name: 'detail', params: {orderId: obj.$route.params.orderId}})
+                obj.router.replace({name: 'mOrderDetail', params: {orderId: obj.$route.params.orderId}})
               } else {
                 window.mui.toast('取消失败，请稍后重试！')
               }
@@ -150,7 +150,7 @@ export default {
               function (res) {
                 if (res && res.body.result === 'success') {
                   window.mui.toast('删除成功！')
-                  obj.router.replace({name: 'list', params: {listType: obj.orderHeaderDTO.type}})
+                  obj.router.replace({name: 'mOrderList', params: {listType: obj.orderHeaderDTO.type}})
                 } else {
                   window.mui.toast('删除失败，请稍后重试！')
                 }
@@ -170,7 +170,7 @@ export default {
               function (res) {
                 if (res && res.body.result === 'success') {
                   window.mui.toast('已确认收货！')
-                  obj.router.replace({name: 'detail', params: {orderId: obj.$route.params.orderId}})
+                  obj.router.replace({name: 'mOrderDetail', params: {orderId: obj.$route.params.orderId}})
                 } else {
                   window.mui.toast('操作失败，请稍后重试！')
                 }

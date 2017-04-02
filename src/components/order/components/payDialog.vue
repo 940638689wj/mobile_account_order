@@ -104,7 +104,7 @@ export default {
         this.payWayShow = false
         this.payPasswordShow = false
 
-        this.$http.get('/m/account/orderHeader/getBussinessConfigTypeList', {
+        this.$http.get('/orderHeader/getBussinessConfigTypeList', {
           params: {
             orderId: this.orderId
           },

@@ -124,7 +124,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/cancelOrderHeader', {
+          obj.$http.post('/orderHeader/cancelOrderHeader', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
             function (res) {
@@ -144,7 +144,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/delOrderHeader', {
+          obj.$http.post('/orderHeader/delOrderHeader', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
               function (res) {
@@ -164,7 +164,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认收货？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/confirmReceive', {
+          obj.$http.post('/orderHeader/confirmReceive', {
             orderId: obj.$route.params.orderId
           }, {emulateJSON: true}).then(
               function (res) {
@@ -182,7 +182,7 @@ export default {
   },
   created () {
     // 加载订单数据
-    this.$http.get('/m/account/orderHeader/orderHeaderDetail', {
+    this.$http.get('/orderHeader/orderHeaderDetail', {
       params: {
         orderId: this.$route.params.orderId
       },

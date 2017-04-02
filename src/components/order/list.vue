@@ -114,7 +114,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/cancelOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
+          obj.$http.post('/orderHeader/cancelOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
             function (res) {
               if (res && res.body.result === 'success') {
                 obj.pageNo = 0
@@ -134,7 +134,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认删除该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/delOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
+          obj.$http.post('/orderHeader/delOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
                   obj.pageNo = 0
@@ -154,7 +154,7 @@ export default {
       let obj = this
       window.mui.confirm('', '确认收货？', this.btnArray, function (e) {
         if (e.index === 1) {
-          obj.$http.post('/m/account/orderHeader/confirmReceive', {orderId: orderId}, {emulateJSON: true}).then(
+          obj.$http.post('/orderHeader/confirmReceive', {orderId: orderId}, {emulateJSON: true}).then(
               function (res) {
                 if (res && res.body.result === 'success') {
                   obj.pageNo = 0
@@ -185,7 +185,7 @@ export default {
           loadDownFn (me) {
             obj.pageNo++
             // 拼接HTML
-            obj.$http.get('/m/account/orderHeader/findListByLimit', {
+            obj.$http.get('/orderHeader/findListByLimit', {
               params: {
                 pageNo: obj.pageNo,
                 pageSize: obj.pageSize,

@@ -22,8 +22,8 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/m': {
-            target: 'http://localhost:8080',
+        '/orderHeader': {
+            target: 'http://127.0.0.1:8080',
             changeOrigin: true
         }
         // '/m': {

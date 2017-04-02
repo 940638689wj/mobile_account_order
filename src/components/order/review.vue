@@ -89,7 +89,7 @@ export default {
           productReviewList: this.reviewInfoList
         }
         // 保存评论
-        this.$http.post('/m/account/orderHeader/saveReview', JSON.stringify(params), {
+        this.$http.post('/orderHeader/saveReview', JSON.stringify(params), {
           emulateJSON: true
         }).then(
           function (res) {
@@ -114,7 +114,7 @@ export default {
   },
   created () {
     // 加载订单商品数据
-    this.$http.get('/m/account/orderHeader/orderHeaderDetail', {
+    this.$http.get('/orderHeader/orderHeaderDetail', {
       params: {
         orderId: this.$route.params.orderId
       },

@@ -83,7 +83,7 @@ import '../../../static/mobile/js/dropload.js'
 import payDialog from './components/payDialog'
 
 export default {
-  name: 'list',
+  name: 'mOrderList',
   data () {
     return {
       orderHeaderDTOList: [], // 订单列表

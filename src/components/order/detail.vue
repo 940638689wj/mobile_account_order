@@ -105,7 +105,7 @@ import VueRouter from 'vue-router'
 import routers from '../../routers'
 
 export default {
-  name: 'detail',
+  name: 'mOrderDetail',
   data () {
     return {
       orderHeaderDTO: {}, // 订单信息

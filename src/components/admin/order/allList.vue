@@ -43,4 +43,9 @@ export default {
 </script>
 
 <style scoped>
+/*@import '/static/admin/css/dpl.css';
+@import '/static/admin/css/bui.css';
+@import '/static/admin/css/main.css';
+@import '/static/admin/css/page.css';
+@import '/static/admin/css/theme-01.css';*/
 </style>

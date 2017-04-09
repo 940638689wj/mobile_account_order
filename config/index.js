@@ -24,6 +24,7 @@ module.exports = {
     proxyTable: {
         '/orderHeader': {
             target: 'http://127.0.0.1:8080',
+            // target: 'http://192.168.10.232:8124',
             changeOrigin: true
         }
         // '/m': {

@@ -8,13 +8,9 @@
     <div class="mui-content">
         <div class="skutabbar skutabbar-order">
             <ul>
-                <li :class="{selected:type == 0}"><a href="javascript:void(0)" @click="changeType(0)">全部</a></li>
-                <li :class="{selected:type == 1}"><a href="javascript:void(0)" @click="changeType(1)">待付款</a></li>
-                <li :class="{selected:type == 2}"><a href="javascript:void(0)" @click="changeType(2)">待发货</a></li>
-                <li :class="{selected:type == 3}"><a href="javascript:void(0)" @click="changeType(3)">待收货</a></li>
-                <li :class="{selected:type == 4}"><a href="javascript:void(0)" @click="changeType(4)">待评价</a></li>
-                <li :class="{selected:type == 5}"><a href="javascript:void(0)" @click="changeType(5)">已完成</a></li>
-                <li :class="{selected:type == 6}"><a href="javascript:void(0)" @click="changeType(6)">已取消</a></li>
+                <li v-for="(typeName,index) in typeNameList" :class="{selected:type == index}">
+                  <a href="javascript:void(0)" @click="changeType(index)">{{typeName}}</a>
+                </li>
             </ul>
         </div>
 
@@ -86,6 +82,7 @@ export default {
   name: 'mOrderList',
   data () {
     return {
+      typeNameList: ['全部', '待付款', '待发货', '待收货', '待评价', '已完成', '已取消'],
       orderHeaderDTOList: [], // 订单列表
       pageNo: 0,
       pageSize: 5,

@@ -1,5 +1,5 @@
 <template>
-<div id="page" v-cloak>
+<div id="page">
   <header class="mui-bar mui-bar-nav">
       <router-link :to="{name: 'mOrderList', params: {listType: orderHeaderDTO.type}}" class="mui-icon mui-icon-left-nav"></router-link>
       <h1 class="mui-title">订单详情</h1>
@@ -10,8 +10,8 @@
           <ul>
               <li>
                   <a href="javascript:void(0)">
-                      <div class="r orange"
-                           v-if="orderHeaderDTO.orderStatusCd == 5 && orderHeaderDTO.reviewStatusCd == 1">待评价
+                      <div class="r orange" 
+                      v-if="orderHeaderDTO.orderStatusCd == 5 && orderHeaderDTO.reviewStatusCd == 1">待评价
                       </div>
                       <div class="r orange" v-else>{{orderHeaderDTO.orderStatusName}}</div>
                       <div class="c">订单号：{{orderHeaderDTO.orderNumber}}</div>
@@ -43,7 +43,9 @@
                           <div class="price-real">¥{{orderItem.salePrice}}</div>
                       </div>
                   </div>
-                  <div class="aftersales"><a class="orderdetailbtn" href="return_goods.html" v-if="orderHeaderDTO.orderStatusCd == 2 || orderHeaderDTO.orderStatusCd == 3">退款/退货</a></div>
+                  <div class="aftersales">
+                    <router-link :to="{name: 'mOrderReturnSubmit', params: {orderId: orderHeaderDTO.orderId}}" class="orderdetailbtn" v-if="orderHeaderDTO.type == 2 || orderHeaderDTO.type == 3">退款/退货</router-link>
+                  </div>
               </li>
           </ul>
       </div>
@@ -60,8 +62,8 @@
       </div>
       <div class="payment-info">
           <p><span class="fl gray">快递公司</span><span class="fr">{{orderHeaderDTO.expressName}}</span></p>
-          <p><span class="fl gray">下单时间</span><span class="fr">{{orderHeaderDTO.createTime}}</span></p>
-          <p><span class="fl gray">付款时间</span><span class="fr">{{orderHeaderDTO.orderPayTime}}</span></p>
+          <p><span class="fl gray">下单时间</span><span class="fr">{{orderHeaderDTO.createTime | time}}</span></p>
+          <p><span class="fl gray">付款时间</span><span class="fr">{{orderHeaderDTO.orderPayTime | time}}</span></p>
       </div>
 
       <div class="fbbwrap fbbwrap-total">
@@ -80,7 +82,7 @@
                       <a class="orderdetailbtn" href="javascript:void(0)" @click="confirmReceive">确认收货</a>
                   </div>
                   <div v-if="orderHeaderDTO.type == 4">
-                    <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeaderDTO.orderId, type: 1}}" class='orderdetailbtn'>
+                    <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeaderDTO.orderId}}" class='orderdetailbtn'>
                       评价
                     </router-link>
                   </div>
@@ -111,8 +113,7 @@ export default {
       orderHeaderDTO: {}, // 订单信息
       orderReceiveInfo: {}, // 收货人信息
       selectOrderId: 0,
-      btnArray: ['否', '是'], // 确认框按钮组
-      router: ''
+      btnArray: ['否', '是'] // 确认框按钮组
     }
   },
   components: {
@@ -130,7 +131,7 @@ export default {
             function (res) {
               if (res && res.body.result === 'success') {
                 window.mui.toast('取消成功！')
-                obj.router.replace({name: 'mOrderDetail', params: {orderId: obj.$route.params.orderId}})
+                this.loadData()
               } else {
                 window.mui.toast('取消失败，请稍后重试！')
               }
@@ -150,7 +151,7 @@ export default {
               function (res) {
                 if (res && res.body.result === 'success') {
                   window.mui.toast('删除成功！')
-                  obj.router.replace({name: 'mOrderList', params: {listType: obj.orderHeaderDTO.type}})
+                  new VueRouter({routes: routers}).replace({name: 'mOrderList', params: {listType: obj.orderHeaderDTO.type}})
                 } else {
                   window.mui.toast('删除失败，请稍后重试！')
                 }
@@ -170,7 +171,7 @@ export default {
               function (res) {
                 if (res && res.body.result === 'success') {
                   window.mui.toast('已确认收货！')
-                  obj.router.replace({name: 'mOrderDetail', params: {orderId: obj.$route.params.orderId}})
+                  this.loadData()
                 } else {
                   window.mui.toast('操作失败，请稍后重试！')
                 }
@@ -178,24 +179,24 @@ export default {
             )
         }
       })
+    },
+    loadData () {
+      // 加载订单数据
+      this.$http.get('/orderHeader/orderHeaderDetail', {
+        params: {
+          orderId: this.$route.params.orderId
+        },
+        emulateJSON: true
+      }).then(
+        function (res) {
+          this.orderHeaderDTO = res.body.orderHeaderDTO
+          this.orderReceiveInfo = res.body.orderReceiveInfo
+        }
+      )
     }
   },
   created () {
-    // 加载订单数据
-    this.$http.get('/orderHeader/orderHeaderDetail', {
-      params: {
-        orderId: this.$route.params.orderId
-      },
-      emulateJSON: true
-    }).then(
-      function (res) {
-        this.orderHeaderDTO = res.body.orderHeaderDTO
-        this.orderReceiveInfo = res.body.orderReceiveInfo
-      }
-    )
-    this.router = new VueRouter({
-      routes: routers
-    })
+    this.loadData()
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-<div id="page" v-cloak>
+<div id="page">
     <header class="mui-bar mui-bar-nav">
         <a class="mui-icon mui-icon-left-nav" :href="backUrl"></a>
         <h1 class="mui-title">我的订单</h1>
@@ -44,16 +44,16 @@
                         </div>
                     <!--待发货-->
                         <div class="cz" v-if="orderHeader.type == 2">
-                            <a class="mui-btn mui-btn-outlined">退款/退货</a>
+                            <router-link :to="{name: 'mOrderReturnSubmit', params: {orderId: orderHeader.orderId}}" class="mui-btn mui-btn-outlined">退款/退货</router-link>
                         </div>
                     <!--待收货-->
                         <div class="cz" v-if="orderHeader.type == 3">
-                            <a class="mui-btn mui-btn-outlined">退款/退货</a>
+                            <router-link :to="{name: 'mOrderReturnSubmit', params: {orderId: orderHeader.orderId}}" class="mui-btn mui-btn-outlined">退款/退货</router-link>
                             <a class="mui-btn mui-btn-danger mui-btn-outlined" @click="confirmReceive(orderHeader.orderId)" v-if="orderHeader.orderDistrbuteTypeCd == 1">确认收货</a>
                         </div>
                     <!--待评价-->
                         <div class="cz" v-if="orderHeader.type == 4">
-                        <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeader.orderId, type: 1}}" class="mui-btn mui-btn-danger mui-btn-outlined">
+                        <router-link :to="{name: 'mOrderReview', params: {orderId: orderHeader.orderId}}" class="mui-btn mui-btn-danger mui-btn-outlined">
                             评价
                         </router-link>
                         </div>
@@ -112,7 +112,7 @@ export default {
       window.mui.confirm('', '确认取消该订单？', this.btnArray, function (e) {
         if (e.index === 1) {
           obj.$http.post('/orderHeader/cancelOrderHeader', {orderId: orderId}, {emulateJSON: true}).then(
-            function (res) {
+            res => {
               if (res && res.body.result === 'success') {
                 obj.pageNo = 0
                 obj.orderHeaderDTOList = []
@@ -213,5 +213,3 @@ export default {
   }
 }
 </script>
-
-

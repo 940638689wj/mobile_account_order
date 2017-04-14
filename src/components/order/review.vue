@@ -1,5 +1,5 @@
 <template>
-<div id="page" v-cloak>
+<div id="page">
     <header class="mui-bar mui-bar-nav">
         <a class="mui-icon mui-icon-left-nav" href="javaScript:history.back(-1)"></a>
         <h1 class="mui-title">评论</h1>
@@ -74,9 +74,9 @@ export default {
     // 提交评论
     submitReview () {
       // 非空验证
-      let flag = false
+      let flag = true
       for (let reviewInfo of this.reviewInfoList) {
-        if (!reviewInfo.productMatchScore) {
+        if (reviewInfo.productMatchScore === '0') {
           window.mui.toast('评分不能为空!')
           flag = false
           return false
@@ -95,15 +95,10 @@ export default {
           function (res) {
             if (res.body.result === 'success') {
               window.mui.toast('评价成功')
-              if (this.$route.params.type === 1) {
-                const router = new VueRouter({
-                  routes: routers
-                })
-                router.replace({name: 'detail', params: {orderId: this.$route.params.orderId}})
-              } else if (this.$route.params.type === 2) {
-                window.location.href = '/m/account/groupPurchaseOrder/list?type=0'
-              } else if (this.$route.params.type === 3) {
-                window.location.href = '/m/account/pickupOrder/list?type=0'
+              if (!this.$route.query.successUrl) {
+                new VueRouter({routes: routers}).replace({name: 'mOrderDetail', params: {orderId: this.$route.params.orderId}})
+              } else {
+                window.location.href = this.$route.query.successUrl
               }
             } else {
               window.mui.toast('不可重复评价')
@@ -124,7 +119,7 @@ export default {
         this.orderHeaderDTO = res.body.orderHeaderDTO
         // 生成对应长度的评论信息数组
         for (let orderItem of res.body.orderHeaderDTO.orderItemList) {
-          this.reviewInfoList.push({productId: orderItem.productId, productMatchScore: 0, replyContent: ''})
+          this.reviewInfoList.push({productId: orderItem.productId, productMatchScore: '0', replyContent: ''})
         }
         window.setTimeout(this.rateitRender, 300)
       }

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">我的业绩</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="performancebar">
+            <ul>
+                <li><a href="my_performance.html"><h3>40</h3><p>业绩点</p></a></li>
+                <li><a href="develop_customer.html"><i></i><p>发展客户</p></a></li>
+            </ul>
+        </div>
+        <p class="pfm-tit"><i></i>我的客户<span>(73)</span></p>
+
+        <div class="pfm-list">
+            <div class="acitem ac-toggled">
+                <div class="actit">
+                    <div class="con"><a href="javascript:void(0);"><span class="num">(0)</span><i></i>V1会员</a></div>
+                    <div class="ac-toggle-btn"></div>
+                </div>
+                <div class="accon">
+                    <div class="iconinfo">
+                        <div class="ico ico-info"></div>
+                        <strong>很遗憾，您还没有<br>打造属于您的关系网！</strong>
+                        <div class="btnbar">
+                            <a class="mui-btn mui-btn-primary mui-btn-block" href="develop_customer.html">去发展您的关系网</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="acitem ac-toggled">
+                <div class="actit">
+                    <div class="con"><a href="javascript:void(0);"><span class="num">(73)</span><i></i>V2会员</a></div>
+                    <div class="ac-toggle-btn"></div>
+                </div>
+                <div class="accon">
+                    <ul class="prd-catlist">
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="acitem ac-toggled">
+                <div class="actit">
+                    <div class="con"><a href="javascript:void(0);"><span class="num">(73)</span><i></i>V3会员</a></div>
+                    <div class="ac-toggle-btn"></div>
+                </div>
+                <div class="accon">
+                    <ul class="prd-catlist">
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                        <li><a href="my_performance_info.html"><i style="background-image: url(images/icon_member.png);"></i>18966661012</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $(".ac-toggle-btn").on("click",function() {
+            var obj = $(this).closest(".acitem");
+            if(obj.hasClass("ac-toggled")){
+                $(".acitem").addClass("ac-toggled");
+                obj.removeClass("ac-toggled");
+            }else{
+                obj.addClass("ac-toggled");
+            }
+        });
+    })
+</script>
+</body>
+</html>

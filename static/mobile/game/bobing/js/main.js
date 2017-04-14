@@ -22,12 +22,11 @@ function bobing(){
     var SHAKE_THRESHOLD = 2000;
     var last_update = 0;
     var x = y = z = last_x = last_y = last_z = 0;
-    var flag=1;
     if(window.DeviceMotionEvent) {
         window.addEventListener('devicemotion', deviceMotionHandler, false);
     }
     function deviceMotionHandler(eventData) {
-        if(keyao==1){
+        if(app.flag){
             return false;
         }
         var acceleration = eventData.accelerationIncludingGravity;
@@ -40,9 +39,9 @@ function bobing(){
             z = acceleration.z;
             var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 30000;
             if(speed > SHAKE_THRESHOLD) {
-                if (keyao==0){
-                    keyao = 1;
-                    processResponse();
+                if (!app.flag){
+                    app.flag = true;
+                    app.processResponse();
                 }
             }
             last_x = x;
@@ -51,45 +50,45 @@ function bobing(){
         };
     };
 }
-//筛子
-function processResponse(){
-    var dice=$(".dice"), result=new Array();
-    for(i=0;i<dice.length;i++){
-        dice.eq(i).addClass("active");
-    }
-    $('#yao')[0].play();
-    var sj=Math.round(Math.random());
-    switch (sj){
-        case 0:
-            result[0]=1;
-            result[1]=2;
-            result[2]=1;
-            result[3]=3;
-            result[4]=1;
-            result[5]=2;
-            break;
-        case 1:
-            result[0]=1;
-            result[1]=4;
-            result[2]=2;
-            result[3]=3;
-            result[4]=1;
-            result[5]=5;
-            break;
-    }
-    setTimeout(function(){
-        $(".dice").removeClass("active");
-    },1500);
-    for(i=0;i<dice.length;i++){
-        dice.eq(i).find("img").attr("src", "images/d"+result[i]+".png");
-    }
-    setTimeout(function(){
-        if(sj==0){
-            alert("没有中奖");
-            keyao=0;
-        }else{
-            alert("中奖");
-            keyao=0;
-        }
-    },2000);
-}
+// //筛子
+// function processResponse(){
+//     var dice=$(".dice"), result=new Array();
+//     for(i=0;i<dice.length;i++){
+//         dice.eq(i).addClass("active");
+//     }
+//     $('#yao')[0].play();
+//     var sj=Math.round(Math.random());
+//     switch (sj){
+//         case 0:
+//             result[0]=1;
+//             result[1]=2;
+//             result[2]=1;
+//             result[3]=3;
+//             result[4]=1;
+//             result[5]=2;
+//             break;
+//         case 1:
+//             result[0]=1;
+//             result[1]=4;
+//             result[2]=2;
+//             result[3]=3;
+//             result[4]=1;
+//             result[5]=5;
+//             break;
+//     }
+//     setTimeout(function(){
+//         $(".dice").removeClass("active");
+//     },1500);
+//     for(i=0;i<dice.length;i++){
+//         dice.eq(i).find("img").attr("src", "images/d"+result[i]+".png");
+//     }
+//     setTimeout(function(){
+//         if(sj==0){
+//             alert("没有中奖");
+//             keyao=0;
+//         }else{
+//             alert("中奖");
+//             keyao=0;
+//         }
+//     },2000);
+// }

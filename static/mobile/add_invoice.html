@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/mui.poppicker.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+</head>
+<body>
+    <div id="page">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-icon mui-icon-left-nav"></a>
+            <h1 class="mui-title">发票</h1>
+            <a class="mui-icon"></a>
+        </header>
+
+        <div class="mui-content">
+            <div class="borderbox">
+                <div class="return">
+                    <h3>发票类型</h3>
+                    <ul class="return-type">
+                        <li class="selected" data-name="normal_pager">普通发票</li>
+                        <li data-name="vat">增值税发票</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="borderbox">
+                <div class="return">
+                    <h3>发票抬头</h3>
+                    <div class="whether">
+                        <p id="invoiceTitlePersonalLabel"><label><input type="radio" id="invoiceTitlePersonal" name="invoiceTitle" value="personal" checked>个人</label></p>
+                        <p><label><input type="radio" id="invoiceTitleCompany" name="invoiceTitle" value="company" >单位</label></p>
+                    </div>
+                </div>
+                <ul class="tbviewlist categorylist">
+                    <li>
+                        <div class="hd" id="personalOrCompanyDiv">个人姓名</div>
+                        <div class="bd"><input type="text" placeholder="请输入个人姓名" class="personalOrCompanyprompt"></div>
+                    </li>
+                </ul>
+                <ul class="tbviewlist categorylist" id="vatInvoiceDiv" style="display: none;">
+                    <li>
+                        <div class="hd">纳税人识别码</div>
+                        <div class="bd"><input type="text" placeholder="请输入纳税人识别码"></div>
+                        <span class="delete"></span>
+                    </li>
+                    <li>
+                        <div class="hd">注册地址</div>
+                        <div class="bd"><input type="number" placeholder="请输入注册地址"></div>
+                    </li>
+                    <li>
+                        <div class="hd">注册电话</div>
+                        <div class="bd"><input type="number" placeholder="请输入注册电话"></div>
+                    </li>
+                    <li>
+                        <div class="hd">银行帐户</div>
+                        <div class="bd"><input type="number" placeholder="请输入银行帐户"></div>
+                    </li>
+                    <li>
+                        <div class="hd">开户行</div>
+                        <div class="bd"><input type="number" placeholder="请输入开户行"></div>
+                    </li>
+                    <li>
+                        <div class="hd">发票抬头</div>
+                        <div class="bd"><input type="number" placeholder="请输入发票抬头"></div>
+                    </li>
+                    <li>
+                        <div class="hd">发票配送地址</div>
+                        <div class="bd">
+                            <input id="showCityPicker" type="text" placeholder="省-市-区/县">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hd">详细地址</div>
+                        <div class="bd"><textarea placeholder="详细地址（街道/门牌号）"></textarea></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="mui-content-padded mt30 align-center">
+            <button type="button" class="mui-btn mui-btn-primary mui-btn-block mb20">确定</button>
+        </div>
+    </div>
+<script src="js/mui.picker.min.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/city.data-3.js"></script>
+<script>
+    (function($, doc) {
+        $.init();
+        $.ready(function() {
+            var cityPicker = new $.PopPicker({
+                layer: 3
+            });
+            cityPicker.setData(cityData3);
+            var showCityPickerButton = doc.getElementById('showCityPicker');
+            showCityPickerButton.addEventListener('tap', function(event) {
+                var obj = this;
+                cityPicker.show(function(items) {
+                    obj.value = (items[0] || {}).text + " - " + (items[1] || {}).text + " - " + (items[2] || {}).text;
+                });
+            }, false);
+        });
+    })(mui, document);
+
+    $(function(){
+        $(".return-type li").on("click",function(){
+            var obj = $(this);
+            obj.addClass("selected").siblings().removeClass("selected");
+            if(obj.attr("data-name")=="vat"){
+                $('#invoiceTitlePersonalLabel').hide();
+                $('#vatInvoiceDiv').show();
+                $('#invoiceTitleCompany').prop("checked", true);
+                $('#personalOrCompanyDiv').html('单位名称');
+                $(".personalOrCompanyprompt").attr('placeholder','请输入单位名称');
+            }else{
+                $('#invoiceTitlePersonalLabel').show();
+                $('#vatInvoiceDiv').hide();
+            }
+        })
+        initInvoiceTitleChangeEvent();
+    })
+
+    function initInvoiceTitleChangeEvent(){
+        $("input[type='radio'][name='invoiceTitle']").change(function(){
+            $('#companyName').val('');
+            if($(this).val() == "company"){
+                $('#personalOrCompanyDiv').html('单位名称');
+                $(".personalOrCompanyprompt").attr('placeholder','请输入单位名称');
+            }else{
+                $('#personalOrCompanyDiv').html('个人姓名');
+                $(".personalOrCompanyprompt").attr('placeholder','请输入个人姓名');
+            }
+        });
+    }
+</script>
+</body>
+</html>

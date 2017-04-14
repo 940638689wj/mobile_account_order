@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">提交订单</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="toptip">
+            <div>提示：您有享受整单优惠</div>
+        </div>
+        <div class="order-address">
+            <a href="order_personal_data.html">
+            <span class="name">林淼淼</span>
+            <span class="phone">15900000123</span>
+            <address>福建省  厦门市  思明区莲前街道软件园二期</address>
+            </a>
+        </div>
+        <div class="tbviewlist categorylist orderviewlist">
+            <ul>
+                <li>
+                    <a id="distribution" class="itemlink" href="javascript:void(0);">
+                        <div class="r">满20减2</div>
+                        <div class="c">优惠券</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbox">
+            <div class="loginform">
+                <ul>
+                    <li>
+                        <div class="hd">配送时间</div>
+                        <div class="bd">
+                            <div class="info gender">
+                                <div class="input-wrap">
+                                    <select>
+                                        <option value="工作日送货（周一至周五）">工作日送货（周一至周五）</option>
+                                        <option value="周末送货（周六周天）">周末送货（周六周天）</option>
+                                        <option value="工作日或周末均可">工作日或周末均可</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sure-list">
+            <h3><span class="goods"></span>商品清单</h3>
+            <ul>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+            </ul>
+            <h3><span class="dishes"></span>菜品清单</h3>
+            <ul>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+                <li>
+                    <div class="name"><span>限时抢购</span>商品名称名称…</div>
+                    <div class="num"><span>x</span>2</div>
+                    <div class="price">￥18.00</div>
+                </li>
+            </ul>
+            <dl>
+                <dt>配送费</dt>
+                <dd>￥3.00</dd>
+            </dl>
+            <dl>
+                <dt><span>总计 ￥241</span><span>优惠 ￥2</span></dt>
+                <dd>实付<span>￥241.00</span></dd>
+            </dl>
+        </div>
+
+        <div class="tbviewlist categorylist orderviewlist">
+            <ul>
+                <li>
+                    <div class="hd">买家留言:</div>
+                    <div class="bd">
+                        <input type="text" placeholder="选填，可填写您的需求">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist">
+                <ul>
+                    <li>
+                        <a class="itemlink" href="javascript:void(0);">
+                            <div class="r">
+                                <div class="mui-switch mui-switch-mini mui-active ">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                            </div>
+                            <div class="c">积分抵扣<span>可用16300积分抵扣¥16.3</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fbbwrap-total">
+            <div class="ftbtnbar">
+                <div class="content-wrap">
+                    <div class="content-wrap-in content-cartwrap-in">
+                        <div class="l">已优惠￥2</div>
+                        <div class="r">
+                            <div class="main-info"><i>合计：</i>￥<span>205.80</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <a class="button" id="paybtn">确定</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="J_ASSpec" class="actionsheet-spec">
+            <div class="close"></div>
+            <div class="prod-info">
+                <div class="title">店铺优惠</div>
+            </div>
+            <div class="spec-list">
+                <div class="spec-list-wrap">
+                    <ul class="tbviewlist paytypes">
+                        <li>
+                            <label>
+                                <input type="radio" name="paytype">
+                                <div class="c">不使用优惠券</div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="paytype">
+                                <div class="c">满20减2元</div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="paytype">
+                                <div class="c">满180减15元</div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fbbwrap-total nofixed">
+                <div class="ftbtnbar">
+                    <div class="button-wrap button-wrap-expand">
+                        <a href="javascript:void(0)" class="button btn-buy">确定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="methodpayment" class="actionsheet-spec">
+            <div class="close"></div>
+            <div class="prod-info">
+                <div class="title">请选择支付方式</div>
+            </div>
+            <div class="spec-list">
+                <div class="spec-list-wrap">
+                    <ul class="tbviewlist paytypes">
+                        <li>
+                            <a href="javascript:void(0);" id="balancepaymentBtn">余额支付</a>
+                        </li>
+                        <li>
+                            <a href="#">微信支付</a>
+                        </li>
+                        <li>
+                            <a href="#">银联支付</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fbbwrap-total nofixed">
+                <div class="ftbtnbar">
+                    <div class="button-wrap button-wrap-expand">
+                        <a href="javascript:void(0)" class="button canclePay">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="balancePayment" class="balance-payment">
+            <h3>支付订单金额<span>￥52.00</span>元</h3>
+            <div class="paymentwrap" style="display:none;">
+                <div class="orderinfo">
+                    <P>请输入支付密码</P>
+                </div>
+                <div class="pwd-box">
+                    <input type="tel" maxlength="6" class="pwd-input" id="pwd-input">
+                    <div class="fake-box">
+                        <input type="password" readonly="">
+                        <input type="password" readonly="">
+                        <input type="password" readonly="">
+                        <input type="password" readonly="">
+                        <input type="password" readonly="">
+                        <input type="password" readonly="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="paymentwrap">
+                <div class="orderinfo">
+                    <p>您还未设置支付密码，为保障账户资金安全，<br>请先<a href="#" class="orange">设置支付密码</a>！</p>
+                </div>
+            </div>
+
+            <div class="fbbwrap-total nofixed">
+                <div class="ftbtnbar">
+                    <div class="button-wrap button-wrap-expand">
+                        <a href="javascript:void(0)" class="button">确定</a>
+                        <a href="javascript:void(0)" class="button cancel" id="balancePaymentCancle">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    $(function(){
+        var specASMask = $("<div style='display: none;' class='mask'></div>").on("click", function (e) {
+                    hideSpecAS();
+                }).appendTo(document.body),
+                specAS = $("#J_ASSpec"),
+                methodPayment = $("#methodpayment");
+        $("#distribution").on("click", function () {
+            showSpecAS(specAS);
+        });
+        specAS.find(".close").on("click", function () {
+            hideSpecAS(specAS);
+        });
+        $(".btn-buy").on("click", function () {
+            hideSpecAS(specAS);
+        });
+
+
+
+        $("#paybtn").on("click", function () {
+            showSpecAS(methodPayment);
+        });
+
+        methodPayment.find(".close").on("click", function () {
+            hideSpecAS(methodPayment);
+        });
+
+        $(".canclePay").on("click", function () {
+            hideSpecAS(methodPayment);
+        });
+
+        function showSpecAS(obj){
+            specASMask.show().animate({opacity:1},{
+                duration:80,
+                complete: function () {
+                    obj.css({
+                        top : "100%",
+                        opacity : 0,
+                        display : "block"
+                    }).animate({
+                        opacity : 1,
+                        translateY:"-"+obj.height() +"px"
+                    },{
+                        duration : 200,
+                        easing : "ease-in-out"
+                    });
+                }
+            });
+        }
+
+        function hideSpecAS(obj,callback){
+            obj.animate({
+                opacity : 0,
+                translateY:0
+            },{
+                duration : 200,
+                easing : "ease-in-out",
+                complete : function () {
+                    obj.hide();
+                    methodPayment.hide();
+                    specASMask.animate({opacity:0},{
+                        duration : 80,
+                        complete: function () {
+                            specASMask.hide();
+                            if(typeof callback == "function") callback.call();
+                        }
+                    });
+                }
+            });
+        }
+
+        var balancePayment = $("#balancePayment");
+
+        var $input = $(".fake-box input");
+        $("#pwd-input").on("input", function() {
+            var pwd = $(this).val().trim();
+            for (var i = 0, len = pwd.length; i < len; i++) {
+                $input.eq("" + i + "").val(pwd[i]);
+            }
+            $input.each(function() {
+                var index = $(this).index();
+                if (index >= len) {
+                    $(this).val("");
+                }
+            });
+            if (len == 6) {
+                //执行其他操作
+            }
+        });
+
+        $("#balancepaymentBtn").on("click", function () {
+            paymentshow();
+        });
+
+
+        $("#balancePaymentCancle").on("click", function () {
+            paymenthide();
+        });
+
+        function paymentshow(){
+            balancePayment.css({
+                top : "100%",
+                opacity : 0,
+                display : "block"
+            }).animate({
+                opacity : 1,
+                translateY:"-"+balancePayment.height() +"px"
+            },{
+                duration : 200,
+                easing : "ease-in-out"
+            });
+        }
+
+        function paymenthide(){
+            balancePayment.animate({
+                opacity : 0,
+                translateY:0
+            },{
+                duration : 200,
+                easing : "ease-in-out",
+                complete : function () {
+                    balancePayment.hide();
+                }
+            });
+        }
+    })
+</script>
+</body>
+</html>

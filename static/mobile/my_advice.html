@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <script type="text/javascript" src="js/dropload.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">我的咨询</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="financiallistWrap">
+            <div class="consulting mblist">
+                <ul>
+                    <!--<li>
+                        <div class="advicepro">
+                            <a href="goods_detail.html">
+                                <div class="pic">
+                                    <img class="lazyload" src="/static/mobile/images/blank.gif" data-src="images/goodspic.jpg" alt=""/>
+                                </div>
+                                <h3>耐克正品2013新款FREE5.0赤足系列男子跑步鞋536840-003YK</h3>
+                                <p class="price mt18"><span class="price-real">￥<em>1290.00</em></span><span class="price-origin">￥1396.00</span></p>
+                            </a>
+                        </div>
+
+                        <dl class="ask">
+                            <dt><em>Q</em></dt>
+                            <dd>这个支持全身水洗么？</dd>
+                        </dl>
+                        <dl class="answer">
+                            <dt><em>A</em></dt>
+                            <dd>您好！这款产品为水洗设计，建议您可将产品在水龙头下冲洗，不要将整机放入水中清洁。祝您购物愉快！</dd>
+                        </dl>
+                        <div class="time">2014-6-26  14:23:40</div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        // 页数
+        var page = 0;
+        // 每页展示5个
+        var size = 10;
+        // dropload
+        $('.financiallistWrap').dropload({
+            scrollArea : window,
+            domDown : {
+                domClass   : 'dropload-down',
+                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                domNoData  : '<div class="dropload-noData">暂无数据</div>'
+            },
+            loadDownFn : function(me){
+                page++;
+                // 拼接HTML
+                var result = '';
+                $.ajax({
+                    type: 'GET',
+                    url: 'json/myadviceList.json?page='+page+'&size='+size,
+                    dataType: 'json',
+                    success: function(data){
+                        var arrLen = data.lists.length;
+                        if(arrLen > 0){
+                            for(var i=0; i<data.lists.length; i++){
+                                result +='<li>'+
+                                        '<div class="advicepro">'+
+                                        '<a href="'+data.lists[i].url+'">'+
+                                        '<div class="pic"><img src="'+data.lists[i].productsimg+'"></div>'+
+                                        '<h3>'+data.lists[i].productsname+'</h3>'+
+                                        '<p class="price mt18"><span class="price-real">￥<em>'+data.lists[i].price+'</em></span></p>'+
+                                        '</a>'+
+                                        '</div>'+
+                                        '<dl class="ask">'+
+                                        '<dt><em>Q</em></dt>'+
+                                        '<dd>'+data.lists[i].ask+'</dd>'+
+                                        '</dl>';
+                                        if(data.lists[i].reply){
+                                            result +='<dl class="answer"><dt><em>A</em></dt><dd>'+data.lists[i].answer+'</dd> </dl>';
+                                        }else {
+                                            result +='<dl class="answer" style="display: none"></dl>';
+                                        }
+                                        result +='<div class="time">'+data.lists[i].time+'</div></li>';
+                            }
+                        }else{
+                            me.lock();
+                            me.noData();
+                        }
+                        setTimeout(function(){
+                            $('.consulting ul').append(result);
+                            me.resetload();
+                        },1000);
+                    },
+                    error: function(xhr, type){
+                        me.resetload();
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">确认订单</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="exchangetab">
+            <ul>
+                <li><a href="coupon_exchange_order.html">快递配送</a></li>
+                <li class="selected"><a href="coupon_exchange_order2.html">上门自提</a></li>
+            </ul>
+        </div>
+
+        <div class="tbviewlist categorylist orderviewlist">
+            <ul>
+                <li class="itemlink">
+                    <div class="c">选择提货门店</div>
+                    <div class="s">
+                        <select>
+                            <option>请选择</option>
+                            <option>XX门店1</option>
+                            <option>XX门店2</option>
+                            <option>XX门店3</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <a id="deliveryTimeBtn" class="itemlink" href="javascript:void(0);">
+                        <div class="r">02月14日 06:00-09:00</div>
+                        <div class="c">选择提货时间</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="borderbox">
+            <h3 class="title">提货券1</h3>
+            <ul class="prd-list">
+                <li>
+                    <div class="pic">
+                        <img src="images/goodspic.jpg">
+                    </div>
+                    <div class="r">
+                        <p class="name">套餐1</p>
+                        <p class="det">心相印抽纸 经典系列面巾纸180抽 整箱装21包纸巾</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tbviewlist categorylist orderviewlist">
+            <ul>
+                <li>
+                    <div class="hd">订单备注:</div>
+                    <div class="bd">
+                        <input type="text" placeholder="选填，可填写您的备注">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="fbbwrap-total">
+            <div class="ftbtnbar">
+                <div class="content-wrap">
+                    <div class="content-wrap-in content-cartwrap-in">
+                        <div class="r">
+                            <div class="main-info"><i>合计：</i>￥<span>205.80</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <a class="button" href="prompt2.html">确定</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="deliveryTime" class="actionsheet-spec">
+            <div class="close"></div>
+            <div class="prod-info">
+                <div class="title">提货时间</div>
+            </div>
+            <div class="ctimewap">
+                <div class="ctimewap-left">
+                    <div id="ctimewapleftScroll" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="ctime-date">
+                                <li class="selected">02月13日（周一）</li>
+                                <li>02月14日（周一）</li>
+                                <li>02月15日（周一）</li>
+                                <li>02月16日（周一）</li>
+                                <li>02月17日（周一）</li>
+                                <li>02月18日（周一）</li>
+                                <li>02月19日（周一）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="ctimewap-right">
+                    <div id="ctimewaprightScroll" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="ctime-time">
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">06:00-09:00</div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">09:00-12:00</div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">12:00-15:00</div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">15:00-18:00</div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">15:00-18:00</div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="paytype">
+                                        <div class="c">15:00-18:00</div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fbbwrap-total nofixed">
+                <div class="ftbtnbar">
+                    <div class="button-wrap button-wrap-expand">
+                        <a href="javascript:void(0)" class="button selectExpressBtn">确定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function(){
+        var paymentMask = $("<div style='display: none;' class='mask'></div>").on("click", function (e) {
+                }).appendTo(document.body);
+
+        /*提货时间*/
+        var dTime = $("#deliveryTime");
+        $("#deliveryTimeBtn").on("click", function () {
+            deliveryTimeshow();
+        });
+
+        dTime.find(".close").on("click", function () {
+            deliveryTimehide();
+        });
+
+
+        function deliveryTimeshow(){
+            paymentMask.show().animate({opacity:1},{
+                duration:80,
+                complete: function () {
+                    dTime.css({
+                        top : "100%",
+                        opacity : 0,
+                        display : "block"
+                    }).animate({
+                        opacity : 1,
+                        translateY:"-"+dTime.height() +"px"
+                    },{
+                        duration : 200,
+                        easing : "ease-in-out"
+                    });
+                }
+            });
+            $(document).bind("touchmove",function(e){
+                e.preventDefault();
+            });
+        }
+
+        function deliveryTimehide(callback){
+            dTime.animate({
+                opacity : 0,
+                translateY:0
+            },{
+                duration : 200,
+                easing : "ease-in-out",
+                complete : function () {
+                    dTime.hide();
+                    paymentMask.animate({opacity:0},{
+                        duration : 80,
+                        complete: function () {
+                            paymentMask.hide();
+                            if(typeof callback == "function") callback.call();
+                        }
+                    });
+                }
+            });
+            $(document).unbind("touchmove");
+        }
+
+    })
+
+    mui('#ctimewapleftScroll').scroll();
+    mui('#ctimewaprightScroll').scroll();
+
+</script>
+</body>
+</html>

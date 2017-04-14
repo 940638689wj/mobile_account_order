@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">修改个人资料</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+
+        <div class="loginform">
+            <ul>
+                <li>
+                    <div class="hd">会员名</div>
+                    <div class="bd">
+                        <div class="info">
+                            <div class="input-wrap"><input type="text" value="女"><span class="delete"></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="hd">性别</div>
+                    <div class="bd">
+                        <div class="info gender">
+                            <div class="input-wrap">
+                                <select>
+                                    <option>男</option>
+                                    <option>女</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="hd">出生日期</div>
+                    <div class="bd">
+                        <div class="info">
+                            <div class="input-wrap"><input type="text" data-options='{"type":"date","beginYear":1960,"endYear":2050}' class="btn" placeholder="2012-12-12"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="hd">地区</div>
+                    <div class="bd">
+                        <div class="info">
+                            <div class="input-wrap"><input type="text" value="女" id="showCityPicker"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="hd">地址</div>
+                    <div class="bd">
+                        <div class="info">
+                            <div class="input-wrap"><input type="text" value="软件园30号"><span class="delete"></span></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="hd">手机号</div>
+                    <div class="bd">
+                        <div class="info">
+                            <div class="input-wrap"><input type="text" value="18022226666"><span class="delete"></span></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="btnbar">
+            <button class="mui-btn mui-btn-block mui-btn-primary">提交</button>
+        </div>
+    </div>
+</div>
+<script src="js/mui.picker.min.js"></script>
+<script src="js/city.data-3.js"></script>
+<script>
+    (function($, doc) {
+        $.init();
+        //var result = $('#result')[0];
+        var btns = $('.btn');
+        btns.each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var optionsJson = this.getAttribute('data-options') || '{}';
+                var options = JSON.parse(optionsJson);
+                var id = this.getAttribute('id');
+                var obj = this;
+                var picker = new $.DtPicker(options);
+                picker.show(function(rs) {
+                    obj.value = rs.text;
+                    picker.dispose();
+                });
+            }, false);
+        });
+
+        $.ready(function() {
+            var cityPicker3 = new $.PopPicker({
+                layer: 3
+            });
+            cityPicker3.setData(cityData3);
+            var showCityPickerButton = doc.getElementById('showCityPicker');
+            showCityPickerButton.addEventListener('tap', function(event) {
+                cityPicker3.show(function(items) {
+                    showCityPickerButton.value =  (items[0] || {}).text + "-" + (items[1] || {}).text + "-" + (items[2] || {}).text;
+                });
+            }, false);
+        });
+
+    })(mui, document);
+</script>
+</body>
+</html>

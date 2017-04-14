@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <script type="text/javascript" src="js/dropload.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">退换货订单</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="skutabbar">
+            <ul>
+                <li class="selected"><a href="javascript:void(0);">未完成</a></li>
+                <li><a href="javascript:void(0);">已完成</a></li>
+            </ul>
+        </div>
+        <div class="financiallistWrap">
+            <div class="order_list">
+                <ul>
+                    <!--<li>
+                        <div class="hd">
+                            <span class="r">未付款</span>
+                            <span class="l">2016-04-27 18:18</span>
+                        </div>
+                        <div class="items">
+                            <a href="order_details.html">
+                                <div class="pic"><img src="images/goodspic.jpg"></div>
+                                <h3>耐克正品 2013新款FREE 5.0赤足系列男子跑步鞋 536840-003 YK</h3>
+                                <p class="price">￥<em>1290.00</em></p>
+                                <p class="spec">数量：1</p>
+                            </a>
+                        </div>
+                        <div class="items">
+                            <a href="order_details.html">
+                                <div class="pic"><img src="images/goodspic.jpg"></div>
+                                <h3>耐克正品 2013新款FREE 5.0赤足系列男子跑步鞋 536840-003 YK</h3>
+                                <p class="price">￥<em>1290.00</em></p>
+                                <p class="spec">数量：1</p>
+                            </a>
+                        </div>
+                        <div class="ft">共2件商品，合计：<span>￥1154.00</span></div>
+                        <div class="cz">
+                            <a class="mui-btn mui-btn-outlined">查看物流</a>
+                            <a class="mui-btn mui-btn-danger mui-btn-outlined">确认收货</a>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        // 页数
+        var page = 0;
+        // 每页展示5个
+        var size = 5;
+        // dropload
+        $('.financiallistWrap').dropload({
+            scrollArea : window,
+            domDown : {
+                domClass   : 'dropload-down',
+                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                domNoData  : '<div class="dropload-noData">暂无数据</div>'
+            },
+            loadDownFn : function(me){
+                page++;
+                // 拼接HTML
+                var result = '';
+                $.ajax({
+                    type: 'GET',
+                    url: 'json/orderList.json?page='+page+'&size='+size,
+                    dataType: 'json',
+                    success: function(data){
+                        var arrLen = data.lists.length;
+                        if(arrLen > 0){
+                            for(var i=0; i<data.lists.length; i++){
+                                result +='<li>'+
+                                        '<div class="hd"><span class="r">'+data.lists[i].state+'</span><span class="l">'+data.lists[i].time+'</span></div>';
+                                for(var t=0; t<data.lists[i].items.length; t++) {
+                                    result += '<div class="items">' +
+                                            '<a href="'+data.lists[i].items[t].url+'">' +
+                                            '<div class="pic"><img src="'+data.lists[i].items[t].img+'"></div>' +
+                                            '<h3>'+data.lists[i].items[t].name+'</h3>' +
+                                            '<p class="price">￥<em>'+data.lists[i].items[t].price+'</em></p>' +
+                                            '<p class="spec">数量：'+data.lists[i].items[t].num+'</p>' +
+                                            '</a>' +
+                                            '</div>';
+                                }
+                                result +='<div class="ft">共'+data.lists[i].goodsnum+'件商品，合计：<span>￥'+data.lists[i].totalprice+'</span></div></li>';
+                            }
+                        }else{
+                            me.lock();
+                            me.noData();
+                        }
+                        setTimeout(function(){
+                            $('.order_list ul').append(result);
+                            me.resetload();
+                        },1000);
+                    },
+                    error: function(xhr, type){
+                        me.resetload();
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

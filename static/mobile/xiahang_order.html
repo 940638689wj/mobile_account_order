@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">确认订单</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="exchangetab">
+            <ul>
+                <li class="selected"><a href="xiahang_order.html">快递配送</a></li>
+                <li><a href="xiahang_order2.html">上门自提</a></li>
+            </ul>
+        </div>
+
+        <div class="order-address">
+            <a href="address_list.html">
+            <span class="name">林淼淼</span>
+            <span class="phone">15900000123</span>
+            <address>福建省  厦门市  思明区莲前街道软件园二期</address>
+            </a>
+        </div>
+
+        <div class="order-address">
+            <a href="#">
+                <address>您的收货信息为空，点此添加收货地址</address>
+            </a>
+        </div>
+
+
+        <div class="borderbox mb0">
+            <h3 class="title">商品清单</h3>
+            <ul class="prd-list b-bottom">
+                <li>
+                    <div class="pic">
+                        <img src="images/goodspic.jpg">
+                    </div>
+                    <div class="r">
+                        <p class="name">商品标题商品标题商品标题…</p>
+                        <p class="info"><span class="num"><i class="small">X</i>1</span><span class="specifications">规格：1L</span></p>
+                        <div class="select">
+                            <select>
+                                <option>现金¥100+积分20000</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist categorylist">
+                <ul>
+                    <li class="itemlink" >
+                        <div class="c">配送方式</div>
+                        <div class="s">
+                            <select>
+                                <option>请选择</option>
+                                <option>顺丰￥20.00</option>
+                                <option>中通￥20.00</option>
+                                <option>韵达￥20.00</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="itemlink" href="invoice_list.html">
+                            <div class="r">不开发票</div>
+                            <div class="c">发票信息</div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="hd">买家留言:</div>
+                        <div class="bd">
+                            <input type="text" placeholder="选填：对本次交易的说明">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist categorylist">
+                <ul>
+                    <li class="itemlink" >
+                        <div class="c">优惠券</div>
+                        <div class="s">
+                            <select>
+                                <option>不使用</option>
+                                <option>顺丰￥20.00</option>
+                                <option>中通￥20.00</option>
+                                <option>韵达￥20.00</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hd">使用优惠码:</div>
+                        <div class="bd">
+                            <div class="info">
+                                <div class="wrap">
+                                    <input type="text" placeholder="请输入优惠码">
+                                </div>
+                                <a class="btn active">使用</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist categorylist">
+                <ul>
+                    <li class="itemlink">
+                        <div class="c">红包</div>
+                        <div class="s">
+                            <select>
+                                <option>不使用</option>
+                                <option>顺丰￥20.00</option>
+                                <option>中通￥20.00</option>
+                                <option>韵达￥20.00</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                        <div class="r">现金￥200 - 优惠10 + 运费20</div>
+                        <div class="c">合计</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist categorylist">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <div class="r">
+                                <div class="mui-switch mui-switch-mini mui-active">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                            </div>
+                            <div class="c">账户余额<span>¥16.3</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fbbwrap-total">
+            <div class="ftbtnbar">
+                <div class="content-wrap">
+                    <div class="content-wrap-in content-cartwrap-in">
+                        <div class="r">
+                            <div class="main-info"><i>实付：</i><span>¥110.00+积分40000</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-wrap">
+                    <a class="button" id="balancepaymentBtn">确定</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="J_ASSpec" class="actionsheet-spec">
+            <!--微信支付-->
+            <div class="payment-method" style="display: none;">
+                <div class="close"></div>
+                <div class="prod-info">
+                    <div class="title">请选择支付方式</div>
+                </div>
+                <div class="spec-list">
+                    <div class="spec-list-wrap">
+                        <ul class="tbviewlist paytypes">
+                            <li>
+                                <a href="#">微信支付</a>
+                            </li>
+                            <li>
+                                <a href="#">银联支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="fbbwrap-total nofixed">
+                    <div class="ftbtnbar">
+                        <div class="button-wrap button-wrap-expand">
+                            <a href="javascript:void(0)" class="button cancelBtn">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--余额支付-->
+            <div class="ye-payment">
+                <div class="prod-info">
+                    <div class="title">支付订单金额<span class="orange">￥52.00</span>元</div>
+                </div>
+                <div class="paymentwrap">
+                    <div class="orderinfo">
+                        <P>请输入支付密码</P>
+                    </div>
+                    <div class="pwd-box">
+                        <input type="tel" maxlength="6" class="pwd-input" id="pwd-input">
+                        <div class="fake-box">
+                            <input type="password" readonly="">
+                            <input type="password" readonly="">
+                            <input type="password" readonly="">
+                            <input type="password" readonly="">
+                            <input type="password" readonly="">
+                            <input type="password" readonly="">
+                        </div>
+                    </div>
+                    <div class="orderinfo">
+                        <p>您还未设置支付密码，为保障账户资金安全，<br>请先<a href="#" class="textcolor">设置支付密码</a>！</p>
+                    </div>
+                </div>
+
+                <div class="fbbwrap-total nofixed">
+                    <div class="ftbtnbar">
+                        <div class="button-wrap button-wrap-expand">
+                            <a href="javascript:void(0)" class="button">确定</a>
+                            <a href="javascript:void(0)" class="button cancel">取消</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function(){
+        var paymentMask = $("<div style='display: none;' class='mask'></div>").on("click", function (e) {
+                }).appendTo(document.body),
+                specAS = $("#J_ASSpec");
+        $("#balancepaymentBtn").on("click", function () {
+            paymentshow();
+        });
+        specAS.find(".close").on("click", function () {
+            paymenthide();
+        });
+
+        $(".cancelBtn,.cancel").on("click", function () {
+            paymenthide();
+        });
+
+        function paymentshow(){
+            paymentMask.show().animate({opacity:1},{
+                duration:80,
+                complete: function () {
+                    specAS.css({
+                        top : "100%",
+                        opacity : 0,
+                        display : "block"
+                    }).animate({
+                        opacity : 1,
+                        translateY:"-"+specAS.height() +"px"
+                    },{
+                        duration : 200,
+                        easing : "ease-in-out"
+                    });
+                }
+            });
+            $(document).bind("touchmove",function(e){
+                e.preventDefault();
+            });
+            $('.actionsheet-spec .spec-list')[0].addEventListener('touchmove', function(e) {
+                e.stopPropagation();
+            }, false);
+        }
+
+        function paymenthide(callback){
+            specAS.animate({
+                opacity : 0,
+                translateY:0
+            },{
+                duration : 200,
+                easing : "ease-in-out",
+                complete : function () {
+                    specAS.hide();
+                    paymentMask.animate({opacity:0},{
+                        duration : 80,
+                        complete: function () {
+                            paymentMask.hide();
+                            if(typeof callback == "function") callback.call();
+                        }
+                    });
+                }
+            });
+            $(document).unbind("touchmove");
+        }
+
+        var $input = $(".fake-box input");
+        $("#pwd-input").on("input", function() {
+            var pwd = $(this).val().trim();
+            for (var i = 0, len = pwd.length; i < len; i++) {
+                $input.eq("" + i + "").val(pwd[i]);
+            }
+            $input.each(function() {
+                var index = $(this).index();
+                if (index >= len) {
+                    $(this).val("");
+                }
+            });
+            if (len == 6) {
+                //执行其他操作
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

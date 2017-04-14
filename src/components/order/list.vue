@@ -22,7 +22,7 @@
                             <span class="r"
                                   v-if="orderHeader.orderStatusCd == 5 && orderHeader.orderReviewStatusCd == 1">待评价</span>
                             <span class="r" v-else>{{orderHeader.orderStatusName}}</span>
-                            <span class="l">{{orderHeader.createTime | time}}</span>
+                            <span class="l">{{orderHeader.orderNumber}}</span>
                         </div>
                         <router-link :to="{name: 'mOrderDetail', params: { orderId: orderHeader.orderId }}">
                             <div class="items" v-for="orderItem in orderHeader.orderItemList">

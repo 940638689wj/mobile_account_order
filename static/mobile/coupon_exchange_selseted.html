@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">选择套餐</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="package">
+            <ul>
+                <li>
+                    <div class="tit"><label><input type="radio" name="deliverynote">提货券1</label></div>
+                    <div class="items">
+                        <label><input type="radio" name="chk_item" class="chk_item" disabled></label>
+                        <div class="pic">
+                            <img src="images/goodspic.jpg" alt=""/>
+                        </div>
+                        <div class="r">
+                            <p class="name">套餐1</p>
+                            <p class="det">心相印抽纸 经典系列面巾纸180抽 整箱装21包纸巾</p>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <label><input type="radio" name="chk_item" class="chk_item" disabled></label>
+                        <div class="pic">
+                            <img src="images/goodspic.jpg" alt=""/>
+                        </div>
+                        <div class="r">
+                            <p class="name">套餐1</p>
+                            <p class="det">心相印抽纸 经典系列面巾纸180抽 整箱装21包纸巾</p>
+                        </div>
+                    </div>
+                    <div class="describe toggled">
+                        <div class="togglebtn"></div>
+                        套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述套餐礼包描述文本，套餐礼包描述…
+                    </div>
+                </li>
+                <li>
+                    <div class="tit"><label><input type="radio" name="deliverynote">提货券2</label></div>
+                    <div class="items">
+                        <label><input type="radio" name="chk_item1" class="chk_item" disabled></label>
+                        <div class="pic">
+                            <img src="images/goodspic.jpg" alt=""/>
+                        </div>
+                        <div class="r">
+                            <p class="name">套餐1</p>
+                            <p class="det">心相印抽纸 经典系列面巾纸180抽 整箱装21包纸巾</p>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <label><input type="radio" name="chk_item1" class="chk_item" disabled></label>
+                        <div class="pic">
+                            <img src="images/goodspic.jpg" alt=""/>
+                        </div>
+                        <div class="r">
+                            <p class="name">套餐1</p>
+                            <p class="det">心相印抽纸 经典系列面巾纸180抽 整箱装21包纸巾</p>
+                        </div>
+                    </div>
+                    <div class="describe toggled">
+                        <div class="togglebtn"></div>
+                        套餐礼包描述文本套餐礼包描述文本套餐礼包描述文本
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btnbar">
+            <a class="mui-btn mui-btn-block mui-btn-primary" href="coupon_exchange_order.html">下一步</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        var describebox = $(".describe"),openheight,
+                closeheight = describebox.height();
+        describebox.height(closeheight);
+        $(".describe .togglebtn").on("click",function(){
+            var item  = $(this).parent();
+            if(item.hasClass("toggled")){
+                openheight =  item [0].scrollHeight;
+                item.animate({
+                    height : openheight
+                },{
+                    duration : 200,
+                    easing : 'ease-in-out',
+                    complete: function(){
+                        item.removeClass("toggled");
+                    }
+                });
+            }else{
+                item.animate({
+                    height : closeheight
+                },{
+                    duration : 200,
+                    easing : 'ease-in-out',
+                    complete: function(){
+                        item.addClass("toggled");
+                    }
+                });
+            }
+
+        });
+
+        $("input[type='radio'][name='deliverynote']").change(function(){
+            $(".chk_item").attr('disabled',true);
+            var _this = $(this),
+                len = _this.parent().parent().siblings().find("input[type='radio']");
+            len.removeAttr('disabled');
+        })
+    })
+</script>
+</body>
+</html>

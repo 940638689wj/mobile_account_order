@@ -19,10 +19,14 @@
               </li>
           </ul>
       </div>
-      <div class="order-address orderdetail-address">
+      <div class="order-address orderdetail-address" v-if="orderReceiveInfo.orderDistrbuteTypeCd == 1">
           <span class="name">{{orderReceiveInfo.receiveName}}</span>
           <span class="phone">{{orderReceiveInfo.receiveTel}}</span>
-          <address>{{orderReceiveInfo.orderDistrbuteTypeCd == 1 ? orderReceiveInfo.receiveAddrCombo : orderReceiveInfo.detailAddress}}</address>
+          <address>{{orderReceiveInfo.receiveAddrCombo}}</address>
+      </div>
+      <div class="order-address orderdetail-address orderdetail-since" v-else>
+          <address>自提时间：{{orderReceiveInfo.requiredStartTime | time}} 至 {{orderReceiveInfo.requiredEndTime | time}}</address>
+          <address>自提地址：{{orderHeaderDTO.detailAddress}}</address>
       </div>
       <div class="message"><p>买家留言：</p>
           <span>{{orderHeaderDTO.orderRemark ? orderHeaderDTO.orderRemark : "无"}}</span></div>
@@ -62,8 +66,9 @@
       </div>
       <div class="payment-info">
           <p><span class="fl gray">快递公司</span><span class="fr">{{orderHeaderDTO.expressName}}</span></p>
+          <p><span class="fl gray">快递单号</span><span class="fr">{{orderHeaderDTO.orderExpressNum}}</span></p>
           <p><span class="fl gray">下单时间</span><span class="fr">{{orderHeaderDTO.createTime | time}}</span></p>
-          <p><span class="fl gray">付款时间</span><span class="fr">{{orderHeaderDTO.orderPayTime | time}}</span></p>
+          <p><span class="fl gray">付款时间</span><span class="fr">{{orderHeaderDTO.orderPayTime ? (orderHeaderDTO.orderPayTime | time) : ''}}</span></p>
       </div>
 
       <div class="fbbwrap fbbwrap-total">

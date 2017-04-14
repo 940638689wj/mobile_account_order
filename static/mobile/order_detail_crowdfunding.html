@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">我的众筹记录</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="toptip">
+            <a class="btn" href="#">领奖</a>
+            <p class="info">众筹结果揭晓，恭喜您中奖啦！</p>
+        </div>
+
+        <div class="borderbox">
+            <div class="prd-list">
+                <ul>
+                    <li>
+                        <div class="pic"><img src="images/goodspic.jpg"></div>
+                        <div class="r">
+                            <p class="name">商品标题商品标题商品标题商品标题商品标题商品标题…</p>
+                            <p class="progressbar"><span style="width:50%;"></span></p>
+                            <p>众筹尚未完成，还需<i class="numberof">3570</i>人次</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pic"><img src="images/goodspic.jpg"><b>已揭晓</b></div>
+                        <div class="r">
+                            <p class="name">商品标题商品标题商品标题…</p>
+                            <p class="announced">获得者:<i>杨杨杨</i></p>
+                            <p class="announced">揭晓时间:2017-03-16 12:00:00.000</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="chipWrap">
+                <div class="topbar">本期商品您总共购买3人次，拥有<span class="orange">10</span>个众筹码</div>
+                <div class="hd">
+                    <ul>
+                        <li>
+                            <span>2017-02-17 15:16:13<em>3人次</em></span>
+                            <p><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i></p>
+                        </li>
+                        <li>
+                            <span>2017-02-18 15:16:13<em>3人次</em></span>
+                            <p><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bd">显示全部</div>
+            </div>
+            <div class="chipWrap">
+                <div class="topbar">收货方式</div>
+                <div class="hd">
+                    <ul>
+                        <li>
+                            <span>2017-02-17 15:16:13<em>3人次</em></span>
+                            <p><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i><i>102021020</i></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="borderbox">
+            <div class="title">收货信息</div>
+            <div class="order-info">
+                <ul>
+                    <li><p>收货地址：</p><span>厦门市思明区软件园观日路</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="borderbox">
+            <div class="tbviewlist categorylist">
+                <ul>
+                    <li>
+                        <a class="itemlink" href="calculation_record.html">
+                            <div class="c">众筹计算记录</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="itemlink" href="participation_record.html">
+                            <div class="c">所有参与记录</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $(".chipWrap .bd").on("click",function() {
+            var _this = $(this),
+                obj = _this.parent().find(".hd");
+            if(obj.hasClass("toggled")){
+                obj.removeClass("toggled");
+                _this.html('显示全部');
+            }else{
+                obj.addClass("toggled");
+                _this.html('收起全部');
+            }
+        });
+    })
+</script>
+</body>
+</html>

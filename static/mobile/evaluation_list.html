@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+    <script type="text/javascript" src="js/dropload.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">用户评价</h1>
+        <a class="mui-icon"></a>
+    </header>
+    <div class="mui-content">
+        <div class="returnbox">
+            <div class="return">
+                <ul class="comment procomment">
+                    <li><div class="fl"><span class="review-starbig review-starbig-4"><b></b></span><i>4.7</i></div><div class="fr"><a href="consulting.html" class="orange">咨询</a></div></li>
+                    <li>4944人评价</li>
+                </ul>
+                <ul class="return-type">
+                    <li class="selected">全部</li>
+                    <li>好评</li>
+                    <li>中评</li>
+                    <li>差评</li>
+                </ul>
+            </div>
+        </div>
+        <div class="financiallistWrap">
+            <div class="review-list">
+                <div class="reviewitem">
+                    <ul>
+                        <!--<li>
+                            <div class="clearbox">
+                                <div class="hd" style="background-image: url(images/userhead.jpg);"></div>
+                                <div class="bd">
+                                    <h3>m***y</h3>
+                                    <p><em class="fl">2016-10-10 15:35</em><em class="fr"><span class="review-star review-star-4"><b></b></span></em></p>
+                                </div>
+                            </div>
+                            <div class="comments-text">下次搞活动还来买，送的红酒包装都那么精美，超赞性价比比较高，希望下次继续合作。</div>
+                            <div class="comments-img">
+                                <div class="imgItems"><img src="images/goodspic.jpg"></div>
+                                <div class="imgItems"><img src="images/goodspic.jpg"></div>
+                                <div class="imgItems"><img src="images/goodspic.jpg"></div>
+                            </div>
+                            <div class="answer">商家回复：感谢亲对洋河1号的支持和认可！祝您生活愉快！</div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        // 页数
+        var page = 0;
+        // 每页展示5个
+        var size = 10;
+        // dropload
+        $('.financiallistWrap').dropload({
+            scrollArea : window,
+            domDown : {
+                domClass   : 'dropload-down',
+                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                domNoData  : '<div class="dropload-noData">暂无数据</div>'
+            },
+            loadDownFn : function(me){
+                page++;
+                // 拼接HTML
+                var result = '';
+                $.ajax({
+                    type: 'GET',
+                    url: 'json/evaluationList.json?page='+page+'&size='+size,
+                    dataType: 'json',
+                    success: function(data){
+                        var arrLen = data.lists.length;
+                        if(arrLen > 0){
+                            for(var i=0; i<data.lists.length; i++){
+                                result +='<li>'+
+                                        '<div class="clearbox">'+
+                                            '<div class="hd" style="background-image: url('+data.lists[i].head+');"></div>'+
+                                            '<div class="bd">'+
+                                            '<h3>'+data.lists[i].name+'</h3>'+
+                                            '<p><em class="fl">'+data.lists[i].time+'</em><em class="fr"><span class="review-star '+data.lists[i].reviewstar+'"><b></b></span></em></p>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="comments-text">'+data.lists[i].ask+'</div>'+
+                                        '<div class="comments-img">';
+                                            for(var t=0; t<data.lists[i].items.length; t++) {
+                                                result +='<div class="imgItems"><img src="'+data.lists[i].items[t].img+'"></div>';
+                                            }
+                                result +='</div>';
+                                result +='</div>';
+                                if(data.lists[i].reply){
+                                    result +='<div class="answer">商家回复：'+data.lists[i].answer+'</div>';
+                                }else {
+                                    result +='<div class="answer" style="display: none"></div>';
+                                }
+                                result +='</li>';
+                            }
+                        }else{
+                            me.lock();
+                            me.noData();
+                        }
+                        setTimeout(function(){
+                            $('.reviewitem ul').append(result);
+                            me.resetload();
+                        },1000);
+                    },
+                    error: function(xhr, type){
+                        me.resetload();
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

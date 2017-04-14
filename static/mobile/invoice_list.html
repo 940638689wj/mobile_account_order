@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"  content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+    <script type="text/javascript" src="js/jquery.unveil.js"></script>
+</head>
+<body>
+<div id="page">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-icon mui-icon-left-nav"></a>
+        <h1 class="mui-title">选择发票</h1>
+        <a class="mui-icon" id="editinvoice"><span>编辑</span></a>
+    </header>
+
+    <div class="mui-content">
+        <ul class="addresslist">
+            <li>
+                <div class="addr-item">
+                    <address>不开具发票</address>
+                </div>
+            </li>
+            <li>
+                <div class="addr-item">
+                    <span class="name">单位发票</span>
+                    <address><i>[默认发票]</i>厦门逸锐信息科技有限公司</address>
+                </div>
+                <div class="edit-wrap mui-hidden">
+                    <div class="edit-bar">
+                        <a href="#"><i class="ico ico-edit"></i>编辑</a>
+                        <a href="#"><i class="ico ico-delete"></i>删除</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="addr-item">
+                    <span class="name">个人发票</span>
+                    <address>张章章</address>
+                </div>
+                <div class="edit-wrap mui-hidden">
+                    <div class="edit-bar">
+                        <a href="#"><i class="ico ico-edit"></i>编辑</a>
+                        <a href="#"><i class="ico ico-delete"></i>删除</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="addr-item">
+                    <span class="name">单位发票</span>
+                    <address>厦门逸锐信息科技有限公司</address>
+                </div>
+                <div class="edit-wrap mui-hidden">
+                    <div class="edit-bar">
+                        <a href="#"><i class="ico ico-edit"></i>编辑</a>
+                        <a href="#"><i class="ico ico-delete"></i>删除</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="fbbwrap">
+            <div class="mainbtnbar"><a href="add_invoice.html" class="address_btn">新增发票</a></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        var isEdit = false,
+            editBtn = $("#editinvoice");
+        editBtn.on("click", function () {
+            if(isEdit){
+                this.innerHTML = '<span>编辑</span>';
+                isEdit = false;
+            }else{
+                this.innerHTML = '<span>完成</span>';
+                isEdit = true;
+            }
+            $(".edit-wrap").toggleClass("mui-hidden");
+        });
+    })
+</script>
+</body>
+</html>

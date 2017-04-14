@@ -507,6 +507,7 @@ a.mui-icon { color: #FFF; }
 .prd-list.group-list { margin-bottom: 10px; }
 .prd-list.group-list li { border-bottom: 1px solid #dfdfdf; border-top: none; margin: 0; }
 .prd-list li { position: relative; padding: 10px; border-top: 1px solid #dfdfdf; margin-top: -1px; }
+.prd-list li.disabled { background: #f7f7f7; }
 .prd-list li > a { display: block; padding: 10px; margin: -10px; overflow: hidden; }
 .prd-list li:after { content: ""; display: block; height: 0; clear: both; }
 .prd-list .pic { position: relative; float: left; width: 84px; height: 84px; overflow: hidden; background: #fff; }
@@ -832,7 +833,7 @@ a.mui-icon { color: #FFF; }
 .returnbox { width: 100%; overflow: hidden; }
 
 .return { padding: 0 15px; margin-bottom: 15px; background-color: #fff; }
-.return h3 { padding: 16px 0; color: #3c3c3c; line-height: 26px; }
+.return h3 { padding: 16px 0 0; color: #3c3c3c; line-height: 26px; }
 .return h3.border { border-bottom: 1px solid #dfdfdf; }
 .return h3 p { margin-left: 10px; }
 .return h3 button { border: 0; }
@@ -840,7 +841,7 @@ a.mui-icon { color: #FFF; }
 .return .return-type li { height: 28px; float: left; line-height: 28px; padding: 0 15px; display: block; border: 1px solid #cccccc; color: #3c3c3c; margin-right: 10px; -webkit-border-radius: 5px; border-radius: 5px; }
 .return .return-type li.selected { border: 1px solid #008cd6; color: #008cd6; }
 .return .return-type li.disabled { color: #888; border: 1px dashed #dfdfdf; }
-.return .whether { width: 100%; padding-bottom: 15px; color: #3c3c3c; }
+.return .whether { width: 100%; padding: 15px 0; color: #3c3c3c; }
 .return .whether p { display: inline-block; margin-right: 40px; }
 .return .instructions textarea { border: 0; padding: 10px 0; }
 
@@ -903,6 +904,8 @@ a.mui-icon { color: #FFF; }
 
 .orderdetail-address { padding-right: 30px; margin-bottom: 0; background-image: none; border-bottom: 1px solid #dfdfdf; }
 .orderdetail-address:after { content: ''; }
+
+.orderdetail-since:before { position: absolute; content: "\e64a"; }
 
 .message { background: #fff; padding: 10px; border-bottom: 1px solid #dfdfdf; margin-bottom: 10px; }
 .message p { width: 75px; float: left; }
@@ -1041,6 +1044,7 @@ a.mui-icon { color: #FFF; }
 .couponsinfo ul li { width: 100%; line-height: 20px; float: left; display: block; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: box; color: #3c3c3c; padding-bottom: 5px; }
 .couponsinfo ul li p { min-width: 70px; color: #888; }
 .couponsinfo ul li span { display: block; -webkit-box-flex: 1; -moz-box-flex: 1; -ms-box-flex: 1; box-flex: 1; }
+.couponsinfo ul li em { display: block; }
 
 .dblist li { padding: 7px 10px; background: #fff; border-bottom: 1px solid #dfdfdf; margin-bottom: 10px; overflow: hidden; }
 .dblist li .cost, .dblist li .time { line-height: 22px; padding-top: 5px; }
@@ -1344,6 +1348,11 @@ a.orderdetailbtn.view { border: 1px solid #999; color: #999; }
 .mui-popover { height: auto; }
 .mui-popover .codeshow { text-align: center; padding: 20px 0; }
 .mui-popover .codeshow img { width: 150px; display: block; margin: auto; }
+
+.order-info { padding: 10px; background: #fff; overflow: hidden; }
+.order-info li { width: 100%; line-height: 20px; float: left; display: block; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: box; color: #3c3c3c; }
+.order-info li p { min-width: 70px; color: #888; }
+.order-info li span { display: block; -webkit-box-flex: 1; -moz-box-flex: 1; -ms-box-flex: 1; box-flex: 1; }
 
 .delivery { padding: 15px 10px 0; overflow: hidden; }
 .delivery li { width: 100%; height: 90px; margin-bottom: 15px; float: right; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: box; }

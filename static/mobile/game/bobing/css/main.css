@@ -32,6 +32,20 @@ input{outline:none}
 .iScrollIndicator {position: absolute;border:0;}
 .iScrollVerticalScrollbar .iScrollIndicator {width: 100%;background-color: #fff;border-radius: 6px;}
 
+.bwpop { position: absolute; top: 50%; left: 50%; width: 290px; -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);background: #ffffff; }
+
+.bwtit { height: 30px; background: #e01d1d; }
+
+.bwclose { position: absolute; right: 5px; width: 20px; height: 20px; text-indent: -9999px; top: 5px; text-align: center; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; background: #b31717; }
+.bwclose:before { content: "x"; position: absolute; left: 0; text-indent: 0; width: 20px; line-height: 20px; color: #fff; }
+
+.bwcon { padding: 30px; line-height: 1.5; font-size: 12px; }
+
+.bwbtnbar { background: #f9f9f9; padding: 10px; text-align: center; }
+.bwbtnbar button { margin: 0 10px; }
+
+.bwbtnbar button { color: #fff; width: 100px; padding: 0; border: 1px solid #cc1718; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; background: #ea4647; background: -moz-linear-gradient(top, #ea4647 0%, #dd1010 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ea4647), color-stop(100%, #dd1010)); background: -webkit-linear-gradient(top, #ea4647 0%, #dd1010 100%); background: -o-linear-gradient(top, #ea4647 0%, #dd1010 100%); background: -ms-linear-gradient(top, #ea4647 0%, #dd1010 100%); background: linear-gradient(to bottom, #ea4647 0%, #dd1010 100%); }
 
 /*bobing*/
 .bowl-wrap{width:65%;max-width:640px;margin:0 auto 0 auto;}
@@ -44,6 +58,80 @@ input{outline:none}
 .sm_btn{width:15%; height:30%; position: absolute; top:5%; right:3%;}
 /*bobing*/
 .dice1.active{-webkit-animation:r1ac 1.5s linear;}
+
+.gamemask {
+    position: fixed;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.ui-dialog {
+    width: 12rem;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 300;
+    background: #FFFFFF;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.ui-dialog h3 {
+    font-size: 14px;
+    text-align: center;
+    color: #3c3c3c;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.ui-dialog p {
+    padding: 10px 0;
+}
+
+.ui-dialog input {
+    width: 100%;
+}
+
+.ui-dialog .ui-btn {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 35px;
+    height: 35px;
+    border: 1px solid #e60000;
+    color: #e60000;
+    background: #fff;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.scard-btn-prize, .scard-btn-share {
+    position: absolute;
+    top: 40px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    text-indent: -9999px;
+}
+.scard-btn-prize {
+     left: 11px;
+     width: 93px;
+     height: 25px;
+     background-image: url(/static/mobile/game/bobing/images/btn-prize.png);
+ }
+.scard-btn-share {
+    right: 11px;
+    width: 88px;
+    height: 25px;
+    background-image: url(/static/mobile/game/bobing/images/btn-share.png);
+}
 @-webkit-keyframes r1ac{
     0% {top:28%;left:23%;-webkit-transform:rotate(0deg);}
     10% {top:54%;left:23%;-webkit-transform:rotate(0deg);}

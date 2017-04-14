@@ -354,6 +354,7 @@
     li {border-bottom: 1px solid $color_border;border-top:none;margin: 0;}
   }
   li{ position: relative; padding:10px; border-top: 1px solid $color_border;margin-top: -1px;
+    &.disabled {background:#f7f7f7; }
     > a {display: block;padding:10px;margin:-10px;overflow: hidden;}
     &:after{ content: ""; display: block; height: 0; clear: both; }
   }
@@ -783,7 +784,7 @@
 
 .returnbox {width:100%;overflow: hidden;}
 .return {padding:0 15px;margin-bottom: 15px;background-color: #fff;
-  h3 {padding:16px 0;color: $color_dark;line-height: 26px;
+  h3 {padding:16px 0 0;color: $color_dark;line-height: 26px;
     &.border {border-bottom:1px solid $color_border;}
     p {margin-left:10px;}
     button {border:0;}
@@ -794,7 +795,7 @@
       &.disabled {color:$color_grey;border: 1px dashed $color_border;}
     }
   }
-  .whether {width:100%;padding-bottom:15px;color:$color_dark;
+  .whether {width:100%;padding:15px 0;color:$color_dark;
     p {display:inline-block;margin-right:40px;}
   }
   .instructions {
@@ -859,6 +860,11 @@
 .orderdetail-address {padding-right: 30px;margin-bottom: 0;background-image: none;border-bottom: 1px solid $color_border;
   &:after {content: '';}
 }
+
+.orderdetail-since {
+  &:before {position: absolute;content: "\e64a";}
+}
+
 
 .message {background: $color_white;padding:10px;border-bottom: 1px solid $color_border;margin-bottom: 10px;
   p {width:75px;float: left;}
@@ -1025,6 +1031,7 @@
     li {width:100%;line-height: 20px;float: left;display: block;@include display-flex;color:$color_dark;padding-bottom:5px;
       p {min-width:70px;color: $color_grey;}
       span {display: block;@include flex(1);}
+      em {display: block;}
     }
   }
 }
@@ -1420,6 +1427,13 @@ a.orderdetailbtn {
   height:auto;
   .codeshow {text-align: center;padding: 20px 0;
     img {width:150px;display: block;margin: auto;}
+  }
+}
+
+.order-info {padding:10px;background: $color_white;overflow: hidden;
+  li {width:100%;line-height: 20px;float: left;display: block;@include display-flex;color:$color_dark;
+    p {min-width:70px;color: $color_grey;}
+    span {display: block;@include flex(1);}
   }
 }
 
